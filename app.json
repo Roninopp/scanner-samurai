@@ -1,0 +1,28 @@
+{
+        "name": "Scanner-Smaurai",
+        "description": "ANTISPAM scanner bot.",
+        "keywords": [
+        "telegram",
+        "anime",
+        "group",
+        "manager",
+        "antispam"
+        ],
+    "repository": "https://github.com/ishikki-akabane/SCANNER-SAMURAI",
+    "env": {
+        "TOKEN": {
+        "description": "Your bot token. Get one from @BotFather duh",
+        "required": true,
+        "value": ""
+        },
+        "DEV_USERS": {
+        "description": "ID of users who are Devs of your bot (can use /py etc.)",
+        "required": false,
+        "value": ""
+        },
+        "ENV": {
+        "description": "Setting this to ANYTHING will enable environment variables. Leave it as it is",
+        "value": "ANYTHING"
+        }
+    }
+}
