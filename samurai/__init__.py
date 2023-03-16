@@ -6,12 +6,12 @@ from telethon import TelegramClient
 from telethon.sessions import MemorySession
 
 #===================================
-API_HASH = ""
-API_ID = 5
-BOT_TOKEN = ""
+API_HASH = "78ba6352dd5cdc166fdef5aa84ba7c67"
+API_ID = 7217645
+BOT_TOKEN = "5137683296:AAHHib5JAImz2bCEuOD_5PPPXbesf5kSzho"
 SESSION_STRING = ""
 
-SUPPORT_CHAT = ""
+SUPPORT_CHAT = "https://t.me/RONIN_Fighters_Fd"
 SUPPORT_ID = -100
 GBAN_CHANNEL_ID = -100
 SPAM_GROUP = -100
@@ -20,7 +20,7 @@ FBAN_SPAM = -100
 
 DOWNLOAD_DIRECTORY = "./"
 
-OWNER_ID = [5030730429]
+OWNER_ID = [5030730429 1793699293]
 SUDOLIST = [] #Enforcers
 SUPPORTLIST = [] #Inspectors
 DEV_LIST = []
@@ -32,7 +32,7 @@ SUPPORT_USERS = SUPPORTLIST + SUDO_USERS #Inspectors
 
 REQUEST_IMG = ""
 
-MONGO_DB = ""
+MONGO_DB = "mongodb+srv://DARKAMAN:DARKAMAN@cluster0.snqhn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 #===================================
 
 StartTime = time.time()
