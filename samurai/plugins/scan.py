@@ -8,10 +8,10 @@ from datetime import datetime
 import time
 from PIL import Image, ImageOps, ImageDraw
 
-from samurai.strings import scan_request_u, scan_request_f
-from samurai.utils.scan_help import check_gban, gban_save1, gban_save2, gban_save3, revert_save
-from samurai.plugins.api_key import scan_api, revert_api
-from samurai.utils.bancode_help import bancode_convo
+from samurai.strings import scan_request_u
+#from samurai.utils.scan_help import check_gban, gban_save1, gban_save2, gban_save3, revert_save
+#from samurai.plugins.api_key import scan_api, revert_api
+#from samurai.utils.bancode_help import bancode_convo
 import asyncio
 
 datetime_fmt = "%Y-%m-%d"
@@ -67,9 +67,9 @@ async def scan(_: Update, message: Message):
 
     try:
         pfp = await tbot.download_profile_photo(target_id, file="user_pfp.jpg", download_big=True)
-        result1 = createform(target_name, pfp="TRUE")
+        result1 = createform(target_name, pfp=True)
     except:
-        result1 = createform(target_name)
+        result1 = createform(target_name, pfp=None)
 
     if flag == "-R":
         user_idint = int(target_id)
@@ -77,7 +77,7 @@ async def scan(_: Update, message: Message):
         crime_co = 200
         await _.send_photo(
             chat_id=GBAN_CHANNEL_ID,
-            photo="form_id.png",
+            photo="user_form.png",
             caption=scan_request_u.format(case_id, user_name, target_name, target_id, reason, proof, bancode),
             reply_markup=InlineKeyboardMarkup(
                 [
