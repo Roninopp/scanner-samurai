@@ -1,1 +1,11 @@
 pyrogram==2.0.97
+pillow
+py-tgcalls==0.9.7
+requests
+tgcrypto
+telethon
+cryptography
+motor
+asyncio
+dnspython
+pymongo
