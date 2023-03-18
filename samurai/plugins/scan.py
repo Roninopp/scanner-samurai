@@ -9,12 +9,10 @@ import time
 from PIL import Image, ImageOps, ImageDraw
 
 from samurai.strings import scan_request_string, forced_scan_string, scan_approved_string, reject_string
-#from samurai.utils.scan_help import check_gban, gban_save1, gban_save2, gban_save3, revert_save
+from samurai.utils.scan_help import check_gban, gban_save1, gban_save2, gban_save3, revert_save
 #from samurai.plugins.api_key import scan_api, revert_api
 #from samurai.utils.bancode_help import bancode_convo
-import asyncio
 
-datetime_fmt = "%Y-%m-%d"
 
 
 #/scan -f 243475585 spamming my gc for fun KCBX021 https://gdfhgjdfg
