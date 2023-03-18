@@ -8,7 +8,7 @@ from datetime import datetime
 import time
 from PIL import Image, ImageOps, ImageDraw
 
-from samurai.strings import scan_request_u
+from samurai.strings import scan_request_string, forced_scan_string, scan_approved_string, reject_string
 #from samurai.utils.scan_help import check_gban, gban_save1, gban_save2, gban_save3, revert_save
 #from samurai.plugins.api_key import scan_api, revert_api
 #from samurai.utils.bancode_help import bancode_convo
@@ -46,13 +46,13 @@ async def scan(_: Update, message: Message):
     user_name = message.from_user.first_name
     stext = message.text
     if len(stext.split(" ")) < 2:
-        await message.reply_text("Atleast give something to scan\nbruhh -_-\nusage: ?scan *id* *reason* *bancode* *prooflink*")
+        await message.reply_text("Atleast give something to scan\nbruhh -_-\nusage: ?scan *flag* *id* *reason* *bancode* *prooflink*")
         return
     try:
         flag, target_id, reason, bancode, proof = splitting(stext)
         bancode = bancode.upper()
     except Exception as e:
-        await message.reply_text(f"wrong format!!\nusage: ?scan **id** **reason** **bancode** **prooflink**")
+        await message.reply_text("wrong format!!\nusage: ?scan **id** **reason** **bancode** **prooflink**")
         print(e)
         return
 
@@ -61,24 +61,26 @@ async def scan(_: Update, message: Message):
         target_name = target.first_name
         tuser_id = await tbot.get_entity(target_id)
     except Exception as e:
-        await message.reply_text(f"I dont know that user!!!\nPlease forward his/her message here and do ?info first")
+        await message.reply_text("I dont know that user!!!\nPlease forward his/her message here and do ?info first")
         print(e)
         return
 
+    await message.reply_text("Connecting to Host team-samurai-X for a CYBER gban scan........")
     try:
         pfp = await tbot.download_profile_photo(target_id, file="user_pfp.jpg", download_big=True)
         result1 = createform(target_name, pfp=True)
     except:
         result1 = createform(target_name, pfp=None)
 
+    user_idint = int(target_id)
+    case = user_idint//100000 + 1928
+    crime_co = 200
+
     if flag == "-R":
-        user_idint = int(target_id)
-        case = user_idint//100000 + 1928
-        crime_co = 200
         await _.send_photo(
             chat_id=GBAN_CHANNEL_ID,
             photo="user_form.png",
-            caption=scan_request_u.format(case_id, user_name, target_name, target_id, reason, proof, bancode),
+            caption=scan_request_string.format(case_id, user_name, target_name, target_id, reason, proof, bancode),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -91,3 +93,52 @@ async def scan(_: Update, message: Message):
                 ]
             )
         )
+        await message.reply_text("Request Sent!!")
+
+    elif flag == "-F":
+        if user_id not in SUDO_USERS:
+            return await message.reply_text("Only Enforcers can force me to scan!!!")
+
+        await _.send_photo(
+            chat_id=GBAN_CHANNEL_ID,
+            photo="user_form.png",
+            caption=forced_scan_string.format(case_id, user_name, target_name, target_id, reason, proof, bancode),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                    ]
+                ]
+            )
+        )
+        await message.reply_text(scan_approved_string.format(target_name, target_id, reason, user_name, case_id))
+    else:
+        await message.reply_text("Invalid Flag!!!")
+
+
+@Client.on_callback_query(filters.regex("accept_call"))
+async def about_commands_callbacc(_, CallbackQuery):
+    await CallbackQuery.message.edit_caption(
+        scan_approved_string,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                ]
+            ]
+        )
+    )
+
+
+@Client.on_callback_query(filters.regex("reject_call"))
+async def about_commands_callbacc(_, CallbackQuery):
+    await CallbackQuery.message.edit_caption(
+        reject_string,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                ]
+            ]
+        )
+    )
