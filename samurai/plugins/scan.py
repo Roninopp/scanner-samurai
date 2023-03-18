@@ -34,10 +34,11 @@ def splitting(text):
     return flag, target_id, reason, bancode, proof
 
 
-@Client.on_message(filters.command("scan") & ~filters.private)
+@Client.on_message(filters.command("scan", prefixes="?") & ~filters.private)
 async def scan(_: Update, message: Message):
 
     user_id = message.from_user.id
+
     if user_id not in SUPPORT_USERS:
         return await message.reply_text("Only Inspectors can use this.")
 
@@ -151,7 +152,7 @@ async def about_commands_callbacc(_, CallbackQuery):
     )
 
 
-@Client.on_message(filters.command("revert") & ~filters.private)
+@Client.on_message(filters.command("revert", prefixes="?") & ~filters.private)
 async def revert(_: Update, message: Message):
 
     user_id = message.from_user.id
@@ -161,7 +162,7 @@ async def revert(_: Update, message: Message):
     user_name = message.from_user.first_name
     stext = message.text
     if len(stext.split(" ")) < 2:
-        await message.reply_text("Atleast give something to scan\nbruhh -_-\nusage: ?scan *flag* *id* *reason* *bancode* *prooflink*")
+        await message.reply_text("Atleast give something to revert\nusage: ?revert *id*")
         return
     try:
         splitted = stext.split(None, 1)[1]
