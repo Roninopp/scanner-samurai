@@ -9,13 +9,13 @@ def createform(name, pfp=None):
         return False
     
     draw = ImageDraw.Draw(id_template)
-    color = "rgb(100, 106, 155)"
+    color = "rgb(200, 106, 155)"
 
     #font1 = ImageFont.truetype("DezertDemoOutline.ttf", size=80)
-    font2 = ImageFont.truetype("font2.ttf", size=80)
+    font2 = ImageFont.truetype("font2.ttf", size=70)
 
     draw.text(
-        (400, 520),
+        (200, 310),
         name,
         fill=color,
         font=font2
@@ -38,8 +38,8 @@ def createform(name, pfp=None):
     pfp_image.putalpha(mask)
 
     width, height = pfp_image.size
-    new_width = int(width * 0.7)
-    new_height = int(height * 0.7)
+    new_width = int(width * 0.4)
+    new_height = int(height * 0.4)
     pfp_image = pfp_image.resize((new_width, new_height))
     pfp_image.save("user_pfp.png")
     os.remove("user_pfp.jpg")
@@ -49,7 +49,7 @@ def createform(name, pfp=None):
     draw = ImageDraw.Draw(mask)
     draw.ellipse((0, 0) + user_image.size, fill=255)
 
-    id_template.paste(user_image, (400, 100), mask)
+    id_template.paste(user_image, (220, 50), mask)
     id_template.save("user_form.png")
     os.remove("user_pfp.png")
     return True
