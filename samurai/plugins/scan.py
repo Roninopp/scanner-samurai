@@ -102,6 +102,7 @@ async def scan(_: Update, message: Message):
         if user_id not in SUDO_USERS:
             return await message.reply_text("Only Enforcers can force me to scan!!!")
 
+        gban_save(target_id, target_name, reason, proof, bancode, user_name)
         await _.send_photo(
             chat_id=GBAN_CHANNEL_ID,
             photo="user_form.png",
@@ -121,6 +122,7 @@ async def scan(_: Update, message: Message):
 
 @Client.on_callback_query(filters.regex("accept_call"))
 async def about_commands_callbacc(_, CallbackQuery):
+    gban_save(target_id, target_name, reason, proof, bancode, user_name)
     await CallbackQuery.message.edit_caption(
         scan_approved_string,
         reply_markup=InlineKeyboardMarkup(
@@ -145,3 +147,28 @@ async def about_commands_callbacc(_, CallbackQuery):
             ]
         )
     )
+
+
+@Client.on_message(filters.command("revert") & ~filters.private)
+async def scan(_: Update, message: Message):
+
+    user_id = message.from_user.id
+    if user_id not in SUPPORT_USERS:
+        return await message.reply_text("Only Inspectors can use this.")
+
+    user_name = message.from_user.first_name
+    stext = message.text
+    if len(stext.split(" ")) < 2:
+        await message.reply_text("Atleast give something to scan\nbruhh -_-\nusage: ?scan *flag* *id* *reason* *bancode* *prooflink*")
+        return
+    try:
+        splitted = stext.split(None, 1)[1]
+        target_id = int(splitted)
+    except:
+        await message.reply_text(f"wrong format!!\nusage: /revert **id**")
+        return
+    
+    check = check_gban(target_id)
+    if check == False:
+        await message.reply_text("this is user is not scanned in our database!")
+        return
