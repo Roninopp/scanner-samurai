@@ -9,7 +9,7 @@ import time
 from PIL import Image, ImageOps, ImageDraw
 
 from samurai.strings import scan_request_string, forced_scan_string, scan_approved_string, reject_string
-from samurai.utils.scan_help import check_gban, gban_save1, gban_save2, gban_save3, revert_save
+from samurai.utils.scan_help import check_gban, gban_save, revert_save
 #from samurai.plugins.api_key import scan_api, revert_api
 #from samurai.utils.bancode_help import bancode_convo
 
@@ -52,6 +52,11 @@ async def scan(_: Update, message: Message):
     except Exception as e:
         await message.reply_text("wrong format!!\nusage: ?scan **id** **reason** **bancode** **prooflink**")
         print(e)
+        return
+    
+    check = check_gban(target_id)
+    if check == True:
+        await message.reply_text("this is user is already scanned in our database!")
         return
 
     try:
