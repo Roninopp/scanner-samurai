@@ -10,7 +10,7 @@ from PIL import Image, ImageOps, ImageDraw
 
 from samurai.strings import scan_request_string, forced_scan_string, scan_approved_string, reject_string
 from samurai.utils.scan_help import check_gban, gban_save, revert_save
-#from samurai.plugins.api_key import scan_api, revert_api
+from samurai.plugins.api import scan_api, revert_api
 #from samurai.utils.bancode_help import bancode_convo
 
 
@@ -103,6 +103,7 @@ async def scan(_: Update, message: Message):
             return await message.reply_text("Only Enforcers can force me to scan!!!")
 
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
+        ok = scan_api(target_id, target_name, reason, proof, bancode, user_name)
         await _.send_photo(
             chat_id=GBAN_CHANNEL_ID,
             photo="user_form.png",
@@ -123,6 +124,7 @@ async def scan(_: Update, message: Message):
 @Client.on_callback_query(filters.regex("accept_call"))
 async def about_commands_callbacc(_, CallbackQuery):
     gban_save(target_id, target_name, reason, proof, bancode, user_name)
+    ok = scan_api(target_id, target_name, reason, proof, bancode, user_name)
     await CallbackQuery.message.edit_caption(
         scan_approved_string,
         reply_markup=InlineKeyboardMarkup(
@@ -174,3 +176,11 @@ async def revert(_: Update, message: Message):
         return
 
     revert_save(target_id)
+    await pbot.send_message(SPAM_GROUP, f"USER [{target_id}](tg://openmessage?user_id={target_id}) UNSCANNED by {user_name}")
+    await message.reply_text(f"Revert completed!!\n[User](tg://openmessage?user_id={target_id}) is Now free!!")
+
+    api_scan = revert_api(str(target_id))
+    if api_scan != "DONE":
+        return await message.reply_text(f"Failed!!! to revert")
+    else:
+        await message.reply_text(f"API Updated!!")
