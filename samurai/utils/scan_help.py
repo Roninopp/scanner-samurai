@@ -10,6 +10,17 @@ def check_gban(user_id):
         return False
 
 
-gban_save
+def gban_save(user_id, target_name, reason, proof, bancode, enforcer):
+    scan_dict = {
+        "user_id": user_id,
+        "name": target_name,
+        "reason": reason,
+        "proof": proof,
+        "bancode": bancode,
+        "enforcer": enforcer
+    }
+    scan_db.insert_one(scan_dict)
 
-revert_save
+
+def revert_save(user_id):
+    scan_db.delete_one({"user_id": user_id})
