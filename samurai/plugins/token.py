@@ -18,7 +18,7 @@ def create_token(user_id):
     return aa
 
 
-@Client.on_message(filters.command("token"))
+@Client.on_message(filters.command("token", prefixes="?"))
 async def token_gen(_, message: Message):
     user_id = message.from_user.id
 
