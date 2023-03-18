@@ -4,7 +4,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
 
 
-@Client.on_message(filters.command("fscan") & ~filters.private)
+@Client.on_message(filters.command("fscan" ) & ~filters.private)
 async def fscan(_: Update, message: Message):
 
     user_id = message.from_user.id
