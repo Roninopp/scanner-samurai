@@ -23,4 +23,5 @@ def gban_save(user_id, target_name, reason, proof, bancode, enforcer):
 
 
 def revert_save(user_id):
+    user_id = str(user_id)
     scan_db.delete_one({"user_id": user_id})
