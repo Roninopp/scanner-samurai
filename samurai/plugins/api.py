@@ -3,19 +3,15 @@ import json
 
 api_key = "samuraiapimadebyishikki"
 
-
-def scan_api(uid, cid, name, bancode, enforcer, reason, proof, enforcement_action, crime_co, usage):
+#target_id, target_name, reason, proof, bancode, user_name
+def scan_api(uid, name, reason, proof, bancode, enforcer):
     post_dict = {
-        "_id": uid,
-        "case_id": cid,
+        "_id": str(uid),
         "name": name,
-        "bancode": bancode,
-        "enforcer": enforcer,
         "reason": reason,
         "proof": proof,
-        "enforcement_action": enforcement_action,
-        "crime_co": crime_co,
-        "usage": usage
+        "bancode": bancode,
+        "enforcer": enforcer,
     }
     headers = {'API-KEY': api_key}
     url = "https://blue-ishikki.vercel.app/scan2"
