@@ -1,5 +1,5 @@
 import json
-from blue.database import token_db
+from samurai.database import token_db
 
 def token_save(userid, token_api, level):
     user_id = str(userid)
