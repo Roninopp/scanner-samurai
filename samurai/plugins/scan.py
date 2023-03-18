@@ -150,7 +150,7 @@ async def about_commands_callbacc(_, CallbackQuery):
 
 
 @Client.on_message(filters.command("revert") & ~filters.private)
-async def scan(_: Update, message: Message):
+async def revert(_: Update, message: Message):
 
     user_id = message.from_user.id
     if user_id not in SUPPORT_USERS:
@@ -172,3 +172,5 @@ async def scan(_: Update, message: Message):
     if check == False:
         await message.reply_text("this is user is not scanned in our database!")
         return
+
+    revert_save(target_id)
