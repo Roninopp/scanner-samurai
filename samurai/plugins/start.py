@@ -5,6 +5,6 @@ import asyncio
 import time
 
 
-@Client.on_message(filters.command("start"))
+@Client.on_message(filters.command("start", prefixes="?"))
 async def start_all(_, message: Message):
     await message.reply_text("I'm alive my master")
