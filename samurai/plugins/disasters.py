@@ -49,3 +49,30 @@ async def logs(_, message: Message):
     
     else:
         await message.reply_text("ᴏɴʟʏ ᴅEvs ᴄᴀɴ ᴅᴏ ᴛʜɪs !!")
+
+
+@Client.on_message(filters.command("scanlist", prefixes="?"))
+async def scanlist(_, message: Message):
+    banned_users = get_gban_list()
+    
+    if not banned_users:
+        await message.reply_text(
+            "NOBODY IS SCANNED",
+        )
+        return
+
+    banfile = "Screw you guys...\n[x] USER ID  |BANCODE | NAME - ENFORCER\n"
+    count = 0
+    for user in banned_users:
+        banfile += f"[{count + 1}] {user['user_id']} - "
+        banfile += f"{user['bancode']} - "
+        banfile += f"{user['name']} - "
+        banfile += f"{user['enforcer']}\n"
+
+    with BytesIO(str.encode(banfile)) as output:
+        output.name = "gbanlist.txt"
+        await message.reply_document(
+            document=output,
+            file_name="gbanlist.txt",
+            caption="Here is the list of people who are scanned",
+        )
