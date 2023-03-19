@@ -30,6 +30,7 @@ async def fscan(_: Update, message: Message):
     try:
         await ubot.send_message(SPAM_GROUP, f"/fban {target_id} {reason}")
     except Exception as e:
+        print(e)
         return await message.reply_text(f"ERROR!!")
 
 
