@@ -38,10 +38,10 @@ def token_gen_api(user_id, tokenn, level):
     headers = {'API-KEY': api_key}
     url = "https://blue-ishikki.vercel.app/approve2"
     response = requests.post(url, headers=headers, json=post_dict)
-    return response.tex
+    return response.text
 
 def records():
-    url = "https://blue-ishikki.vercel.app/records2"
+    url = "https://blue-ishikki.vercel.app/data"
     headers = {'API-KEY': api_key}
     response = requests.get(url, headers=headers)
     SAMURAI_DB = {}
