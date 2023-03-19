@@ -32,5 +32,4 @@ scan_approved_string = """
 **Crime Coefficient:** `Over 300`
 **Reason:** `{}`
 **Enforcer:** `{}`
-**Case Number:** `{}`
 """
