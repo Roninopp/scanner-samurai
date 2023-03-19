@@ -118,7 +118,7 @@ async def scan(_: Update, message: Message):
                 ]
             )
         )
-        await message.reply_text(scan_approved_string.format(target_name, target_id, reason, user_name, case_id))
+        await message.reply_text(scan_approved_string.format(target_name, target_id, reason, user_name))
     else:
         await message.reply_text("Invalid Flag!!!")
 
@@ -127,10 +127,15 @@ async def scan(_: Update, message: Message):
 async def about_commands_callbacc(_, CallbackQuery):
     sender_id = CallbackQuery.from_user.id
     if sender_id in SUDO_USERS:
-        gban_save(target_id, target_name, reason, proof, bancode, user_name)
-        ok = scan_api(target_id, target_name, reason, proof, bancode, user_name)
+        stext = CallbackQuery.message.text
+        flag, target_id, reason, bancode, proof = splitting(stext)
+        user_name = CallbackQuery.from_user.first_name
+        target = await pbot.get_users(target_id)
+        target_name = target.first_name
+        gban_save(str(target_id), target_name, reason, proof, bancode, user_name)
+        ok = scan_api(str(target_id), target_name, reason, proof, bancode, user_name)
         await CallbackQuery.message.edit_caption(
-            scan_approved_string,
+            scan_approved_string.format(target_name, target_id, reason, user_name),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -145,7 +150,6 @@ async def about_commands_callbacc(_, CallbackQuery):
 async def about_commands_callbacc(_, CallbackQuery):
     sender_id = CallbackQuery.from_user.id
     if sender_id in SUDO_USERS:
-        data = CallbackQuery.data
         await CallbackQuery.message.edit_caption(
             reject_string,
             reply_markup=InlineKeyboardMarkup(
