@@ -1,4 +1,4 @@
-from samurai import pbot, OWNER_ID, SUDOLIST, SUPPORT_USERS, SUPPORTLIST, DEV_LIST, DEV_USERS
+from samurai import pbot, DEV_USERS
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
