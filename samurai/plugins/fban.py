@@ -49,7 +49,7 @@ async def unfscan(_: Update, message: Message):
         splitted = stext.split(None, 1)[1]
         target_id = int(splitted)
     except:
-        await message.reply_text(f"wrong format!!\nusage: /unfscan **id**")
+        await message.reply_text(f"wrong format!!\nusage: ?frevert <id>")
         return
     
     try:
