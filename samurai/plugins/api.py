@@ -40,6 +40,7 @@ def token_gen_api(user_id, tokenn, level):
     response = requests.post(url, headers=headers, json=post_dict)
     return response.text
 
+
 def records():
     url = "https://blue-ishikki.vercel.app/data"
     headers = {'API-KEY': api_key}
