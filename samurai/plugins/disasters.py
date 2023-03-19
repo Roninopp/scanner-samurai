@@ -38,19 +38,6 @@ async def disaster(_, message: Message):
     await message.reply_text(final)
 
 
-@Client.on_message(filters.command("logs", prefixes="?"))
-async def logs(_, message: Message):
-    if message.from_user.id in DEV_USERS:
-        chat = message.chat
-        user = message.from_user
-        with open("logs.txt", "rb") as f:
-            await pbot.send_document(document=f, chat_id=user.id)
-            await message.reply_text("`Logs sent, check your pm`")
-    
-    else:
-        await message.reply_text("ᴏɴʟʏ ᴅEvs ᴄᴀɴ ᴅᴏ ᴛʜɪs !!")
-
-
 @Client.on_message(filters.command("scanlist", prefixes="?"))
 async def scanlist(_, message: Message):
     banned_users = get_gban_list()
