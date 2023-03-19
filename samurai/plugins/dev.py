@@ -1,3 +1,8 @@
+from samurai import pbot, OWNER_ID, SUDOLIST, SUPPORT_USERS, SUPPORTLIST, DEV_LIST, DEV_USERS
+from pyrogram import Client, enums, filters
+from pyrogram.types import Message
+
+
 @Client.on_message(filters.command("logs", prefixes="?"))
 async def logs(_, message: Message):
     if message.from_user.id in DEV_USERS:
