@@ -125,32 +125,37 @@ async def scan(_: Update, message: Message):
 
 @Client.on_callback_query(filters.regex("accept_call"))
 async def about_commands_callbacc(_, CallbackQuery):
-    gban_save(target_id, target_name, reason, proof, bancode, user_name)
-    ok = scan_api(target_id, target_name, reason, proof, bancode, user_name)
-    await CallbackQuery.message.edit_caption(
-        scan_approved_string,
-        reply_markup=InlineKeyboardMarkup(
-            [
+    sender_id = CallbackQuery.from_user.id
+    if sender_id in SUDO_USERS:
+        gban_save(target_id, target_name, reason, proof, bancode, user_name)
+        ok = scan_api(target_id, target_name, reason, proof, bancode, user_name)
+        await CallbackQuery.message.edit_caption(
+            scan_approved_string,
+            reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                    [
+                        InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                    ]
                 ]
-            ]
+            )
         )
-    )
 
 
 @Client.on_callback_query(filters.regex("reject_call"))
 async def about_commands_callbacc(_, CallbackQuery):
-    await CallbackQuery.message.edit_caption(
-        reject_string,
-        reply_markup=InlineKeyboardMarkup(
-            [
+    sender_id = CallbackQuery.from_user.id
+    if sender_id in SUDO_USERS:
+        data = CallbackQuery.data
+        await CallbackQuery.message.edit_caption(
+            reject_string,
+            reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                    [
+                        InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                    ]
                 ]
-            ]
+            )
         )
-    )
 
 
 @Client.on_message(filters.command("revert", prefixes="?") & ~filters.private)
