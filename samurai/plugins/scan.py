@@ -70,7 +70,7 @@ async def scan(_: Update, message: Message):
         return
 
     await message.reply_text("Connecting to Host team-samurai-X for a CYBER gban scan........")
-    
+
     try:
         pfp = await tbot.download_profile_photo(target_id, file="user_pfp.jpg", download_big=True)
         result1 = createform(target_name, pfp=True)
@@ -163,13 +163,13 @@ async def revert(_: Update, message: Message):
     user_name = message.from_user.first_name
     stext = message.text
     if len(stext.split(" ")) < 2:
-        await message.reply_text("Atleast give something to revert\nusage: ?revert *id*")
+        await message.reply_text("Atleast give something to revert\nusage: ?revert <id>")
         return
     try:
         splitted = stext.split(None, 1)[1]
         target_id = int(splitted)
     except:
-        await message.reply_text(f"wrong format!!\nusage: /revert **id**")
+        await message.reply_text(f"wrong format!!\nusage: ?revert <id>")
         return
     
     check = check_gban(target_id)
