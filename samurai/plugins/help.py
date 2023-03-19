@@ -11,6 +11,10 @@ Help:
 
 scan: **?scan <flag> <id> <reason> <bancode> <prooflink>**
 revert: **?revert <id>**
-
+fscan: **?fscan <id> <reason>**
+frevert: **?frevert <id>**
+sudolist: Shows the list of disasters
+scanlist: Shows the list of people who are scanned
+logs: Only for developers
 """
     await message.reply_text(textt)
