@@ -45,19 +45,19 @@ async def scan(_: Update, message: Message):
     user_name = message.from_user.first_name
     stext = message.text
     if len(stext.split(" ")) < 2:
-        await message.reply_text("Atleast give something to scan\nbruhh -_-\nusage: ?scan *flag* *id* *reason* *bancode* *prooflink*")
+        await message.reply_text("Atleast give something to scan\nusage: ?scan <flag> <id> <reason> <bancode> <prooflink>")
         return
     try:
         flag, target_id, reason, bancode, proof = splitting(stext)
         bancode = bancode.upper()
     except Exception as e:
-        await message.reply_text("wrong format!!\nusage: ?scan **id** **reason** **bancode** **prooflink**")
+        await message.reply_text("wrong format!!\nusage: ?scan <flag> <id> <reason> <bancode> <prooflink>")
         print(e)
         return
     
     check = check_gban(target_id)
     if check == True:
-        await message.reply_text("this is user is already scanned in our database!")
+        await message.reply_text("this user is already scanned in our database!")
         return
 
     try:
@@ -70,6 +70,7 @@ async def scan(_: Update, message: Message):
         return
 
     await message.reply_text("Connecting to Host team-samurai-X for a CYBER gban scan........")
+    
     try:
         pfp = await tbot.download_profile_photo(target_id, file="user_pfp.jpg", download_big=True)
         result1 = createform(target_name, pfp=True)
