@@ -1,22 +1,33 @@
 scan_request_string = """
 $SCAN
 Cymatic Scan request!
-**CASE ID**: `{}`
-**Inspector:** {} 
+**CASE ID**: {}
 **User scanned:** [{}](tg://openmessage?user_id={})
-**Reason:** {}
+**Reason:** `{}`
 **Proof:** `{}`
 **Bancode:** {}
+**Inspector:** `{}`
+"""
+
+scan_string = """
+$SCAN
+Cymatic Scan!
+**CASE ID**: {}
+**User scanned:** [{}](tg://openmessage?user_id={})
+**Reason:** `{}`
+**Proof:** `{}`
+**Bancode:** {}
+**Enforcer:** `{}`
 """
 
 forced_scan_string = """
 $FORCED
-**CASE ID**: `{}`
-**Enforcer:** {}
+**CASE ID**: {}
 **Target:** [{}](tg://openmessage?user_id={})
 **Reason:** `{}`
-**Proof:** {}
-**Bancode:** `{}`
+**Proof:** `{}`
+**Bancode:** {}
+**Enforcer:** `{}`
 """
 
 reject_string = """
@@ -27,7 +38,7 @@ The trigger of Dominator will be locked.
 """
 
 scan_approved_string = """
-#LethalEliminator
+{}
 **Target User:** [{}](tg://openmessage?user_id={})
 **Crime Coefficient:** `Over 300`
 **Reason:** `{}`
