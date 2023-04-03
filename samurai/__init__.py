@@ -49,8 +49,8 @@ logging.getLogger("pyrogram").setLevel(logging.INFO)
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger('[SAMURAI]')
-LOGGER.info("SAMURAI Scanner is starting...")
-LOGGER.info("Handled by: IShIkkI AKABANE")
+LOGGER.info("SAMURAI Scanner is Booting...")
+LOGGER.info("created by: IShIkkI AKABANE")
 
 
 pbot = Client("samurai", API_ID, API_HASH, bot_token=BOT_TOKEN)
@@ -59,14 +59,6 @@ ubot = Client("Client", api_id=API_ID, api_hash=API_HASH, session_string=SESSION
 
 pbot.start()
 ubot.start()
-
-bot = pbot.get_me()
-BOT_ID = bot.id
-if bot.last_name:
-    BOT_NAME = bot.first_name + " " + bot.last_name
-else:
-    BOT_NAME = bot.first_name
-BOT_USERNAME = bot.username
 
 
 tbot = TelegramClient(MemorySession(), API_ID, API_HASH)
