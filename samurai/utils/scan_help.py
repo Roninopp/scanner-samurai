@@ -29,8 +29,12 @@ def revert_save(user_id):
 
 def gban_data(user_id):
     data = scan_db.find_one({"user_id": str(user_id)})
-    reason = data["reason"]
-    proof = data["proof"]
-    bancode = data["bancode"]
-    enforcer = data["enforcer"]
-    return reason, proof, bancode, enforcer
+    if data:
+        reason = data["reason"]
+        proof = data["proof"]
+        bancode = data["bancode"]
+        enforcer = data["enforcer"]
+        return True, reason, proof, bancode, enforcer
+    else:
+        a = "lol"
+        return False, a, a, a, a
