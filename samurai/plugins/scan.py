@@ -1,7 +1,7 @@
 from samurai import pbot, tbot, ubot, SUDO_USERS, GBAN_CHANNEL_ID, SPAM_GROUP, SUPPORT_CHAT, SUPPORT_USERS
 from samurai.utils.idform import createform
 
-from pyrogram import Client, enums, filters, ParseMode
+from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
 import random
 from datetime import datetime
@@ -45,14 +45,14 @@ async def scan(_: Update, message: Message):
     user_name = message.from_user.first_name
     stext = message.text
     if len(stext.split(" ")) < 2:
-        await message.reply_text("Atleast give something to scan\nusage: ?scan <flag> <id> <reason> <bancode> <prooflink>", parse_mode="Markdown")
+        await message.reply_text("Atleast give something to scan\nusage: ?scan **flag** **id** **reason** **bancode** **prooflink**")
         return
 
     try:
         flag, target_id, reason, bancode, proof = splitting(stext)
         bancode = bancode.upper()
     except Exception as e:
-        await message.reply_text("wrong format!!\nusage: ?scan <flag> <id> <reason> <bancode> <prooflink>")
+        await message.reply_text("wrong format!!\nusage: ?scan **flag** **id** **reason** **bancode** **prooflink**")
         print(e)
         return
     
@@ -214,13 +214,13 @@ async def revert(_: Update, message: Message):
     user_name = message.from_user.first_name
     stext = message.text
     if len(stext.split(" ")) < 2:
-        await message.reply_text("Atleast give something to revert\nusage: ?revert <id>")
+        await message.reply_text("Atleast give something to revert\nusage: ?revert **id**")
         return
     try:
         splitted = stext.split(None, 1)[1]
         target_id = int(splitted)
     except:
-        await message.reply_text(f"wrong format!!\nusage: ?revert <id>")
+        await message.reply_text(f"wrong format!!\nusage: ?revert **id**")
         return
     
     check = check_gban(target_id)
