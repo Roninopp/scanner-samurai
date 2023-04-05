@@ -23,7 +23,7 @@ def splitting(text):
     remove_flag = remove_cmd.split(None, 1)[1]
     target_id = remove_flag.split(" ")[0]
     remove_id = remove_flag.split(None, 1)[1]
-    dividee = remove_id.partition("KCBX")
+    dividee = remove_id.partition("TSX")
     reason = dividee[0]
     divide_reason = remove_id.partition(reason)[2]
     bancode = divide_reason.split(" ")[0]
@@ -225,7 +225,7 @@ async def revert(_: Update, message: Message):
     
     check = check_gban(target_id)
     if check == False:
-        await message.reply_text("this is user is not scanned in our database!")
+        await message.reply_text("this user is not scanned in our database!")
         return
 
     revert_save(target_id)
