@@ -54,7 +54,7 @@ USER INFO in team samurai Database:
 🤵 Username: @{usertag}
 🔖 ID: {user_id}
 🌏 Data Centre ID: Can't get dc id
-🤖 Is Bot: {bot_stat}
+🤖 Is Bot: False
 🔏 Is Restricted: False
 「✪」Is Scanned: False
 🌐 Is Verified by Telegram: False
