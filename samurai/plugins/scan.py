@@ -65,7 +65,7 @@ async def scan(_: Update, message: Message):
     case = user_idint//100000 + 1928
     case_id = "#T" + str(case)
 
-    if flag == "F":
+    if flag == "-F":
         try:
             target = await pbot.get_users(target_id)
             target_name = target.first_name
@@ -80,7 +80,7 @@ async def scan(_: Update, message: Message):
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
         await _.send_photo(
             chat_id=GBAN_CHANNEL_ID,
-            photo="sample1.png",
+            photo="idcard.png",
             caption=forced_scan_string.format(case_id, target_name, target_id, reason, proof, bancode, user_name),
             reply_markup=InlineKeyboardMarkup(
                 [
