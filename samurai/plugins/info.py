@@ -40,17 +40,29 @@ async def info(_, message: Message):
             user_name = user_first_name + " " + user_last_name
         except:
             user_name = user_first_name
+        usertag = user.username
+        if usertag == None:
+            usertag = "None"
 
     check = check_gban(user_id)
     if check == False:
         crime = random.randint(100, 175)
         textt = f"""
-> INFO:-
+USER INFO in team samurai Database:
 
-> User ID: {user_id}
-> Name: {user_name}
-> Crime Co.: {crime}
-> Status: Not Scanned
+👤 Name: {user_name}
+🤵 Username: @{usertag}
+🔖 ID: {user_id}
+🌏 Data Centre ID: Can't get dc id
+🤖 Is Bot: {bot_stat}
+🔏 Is Restricted: False
+「✪」Is Scanned: False
+🌐 Is Verified by Telegram: False
+
+✍️ Bio: 
+This User has no About
+
+🔗 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
 """
         await message.reply_text(textt)
     else:
