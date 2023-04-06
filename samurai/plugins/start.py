@@ -34,7 +34,7 @@ HERE IS A HELP BANCODES OF SAMURAI SCANNER:-
 async def start_all(_, message: Message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
-    bb = await message.reply_text("`COLLECTING YOUR DB...`")
+    bb = await message.reply_text("`COLLECTING YOUR DB.......`")
     await asyncio.sleep(1)
     await message.reply_photo(
         photo="https://graph.org/file/982ad57f6a06f5325e6bd.jpg",
@@ -52,12 +52,12 @@ Created and developed For removing toxic people from telegram
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="ABOUT", callback_data="about_call"),
-                    InlineKeyboardButton(text="Bancodes", callback_data="bancode_call")
+                    InlineKeyboardButton(text="『ABOUT』⁪⁬⁮⁮⁮⁮", callback_data="about_call"),
+                    InlineKeyboardButton(text="『BANCODES』⁪⁬⁮⁮⁮⁮", callback_data="bancode_call")
                 ],
                 [
-                    InlineKeyboardButton(text="Network", url="https://t.me/team_samuraii"),
-                    InlineKeyboardButton(text="Support Group", url=f"https://t.me/{SUPPORT_CHAT}")
+                    InlineKeyboardButton(text="『NETWORK』⁪⁬⁮⁮⁮⁮", url="https://t.me/team_samuraii"),
+                    InlineKeyboardButton(text="『SUPPORT GROUP』⁪⁬⁮⁮⁮⁮", url=f"https://t.me/{SUPPORT_CHAT}")
                 ]
             ]
         )
@@ -81,8 +81,8 @@ YOU CAN SEND REPORT OF USER BY USING /report bancodes + telegraph proof WE WILL 
                     InlineKeyboardButton(text="Team Samurai", url="https://t.me/team_samuraii")
                 ],
                 [
-                    InlineKeyboardButton(text="Owner", url="https://t.me/DushmanXRonin"),
-                    InlineKeyboardButton(text="Dev", url="https://t.me/ishikki_akabane")
+                    InlineKeyboardButton(text="【OWNER】", url="https://t.me/DushmanXRonin"),
+                    InlineKeyboardButton(text="𖣘DEV𖣘", url="https://t.me/ishikki_akabane")
                 ],
                 [
                     InlineKeyboardButton(text="Back", callback_data="home_call")
@@ -129,12 +129,12 @@ Created and developed For removing toxic people from telegram
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="ABOUT", callback_data="about_call"),
-                    InlineKeyboardButton(text="Bancodes", callback_data="bancode_call")
+                    InlineKeyboardButton(text="『ABOUT』⁪⁬⁮⁮⁮⁮", callback_data="about_call"),
+                    InlineKeyboardButton(text="『BANCODES』⁪⁬⁮⁮⁮⁮", callback_data="bancode_call")
                 ],
                 [
-                    InlineKeyboardButton(text="Network", url="https://t.me/team_samuraii"),
-                    InlineKeyboardButton(text="Support Group", url=f"https://t.me/{SUPPORT_CHAT}")
+                    InlineKeyboardButton(text="『NETWORK』⁪⁬⁮⁮⁮⁮", url="https://t.me/team_samuraii"),
+                    InlineKeyboardButton(text="『SUPPORT GROUP』⁪⁬⁮⁮⁮⁮", url=f"https://t.me/{SUPPORT_CHAT}")
                 ]
             ]
         )
