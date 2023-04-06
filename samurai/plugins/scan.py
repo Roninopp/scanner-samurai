@@ -74,7 +74,7 @@ async def scan(_: Update, message: Message):
         if user_id not in SUDO_USERS:
             return await message.reply_text("Only Enforcers can force me to scan!!!")
 
-        await message.reply_text("Connecting to Host team-samurai-X for a Force CYBER gban scan........")
+        await message.reply_text("`Connecting to Host team-samurai-X for a Force CYBER gban scan........`")
 
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
         aa = createform(target_id, target_name, bancode, user_name, reason)
