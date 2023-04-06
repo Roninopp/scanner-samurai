@@ -14,7 +14,7 @@ revert: **?revert <id>**
 fscan: **?fscan <id> <reason>**
 frevert: **?frevert <id>**
 id: Shows the user_id
-info: Shows the info about the user in the database
+Whois: Shows the info about the user in the database
 token: Use it to get your token for the api
 
 sudolist: Shows the list of disasters
