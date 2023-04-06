@@ -12,7 +12,7 @@ REASON: {}
 ──────────────────
 """
 
-@Client.on_message(filters.command(["appeal", "reqgban"], prefixes="?"))
+@Client.on_message(filters.command(["appeal", "report"], prefixes="/"))
 async def request(_, message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
