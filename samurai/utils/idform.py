@@ -2,24 +2,86 @@
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 import os
 
-def createform(name, pfp=None):
+
+def reasonlimit(reason):
+    listr = reason.split(" ")
+    limit1 = 23
+    result1 = listr[0]
+    teststr = listr[0]
+    result2 = ""
+    count = 1
+    while limit1 <= 23:
+        teststr = teststr + " " + listr[count]
+        if len(teststr) > 23:
+            limit1 = 24
+        else:
+            result1 = result1 + " " + listr[count]
+            count = count + 1
+            limit1 = len(result1)
+    
+    result2 = reason.partition(result1)[2]
+    
+    return result1, result2
+
+
+def createform(userid, name, bancode, enforcer, reason, pfp=None):
     try:
-        id_template = Image.open("idcard.png")
+        id_template = Image.open("idcard.jpg")
     except:
         return False
     
     draw = ImageDraw.Draw(id_template)
     color = "rgb(200, 106, 155)"
 
-    #font1 = ImageFont.truetype("DezertDemoOutline.ttf", size=80)
     font2 = ImageFont.truetype("font2.ttf", size=70)
-
+    font3 = ImageFont.truetype("font2.ttf", size=40)
+    
     draw.text(
-        (200, 310),
+        (410, 290),
+        userid,
+        fill=color,
+        font=font2
+    )
+    draw.text(
+        (410, 388),
         name,
         fill=color,
         font=font2
     )
+    draw.text(
+        (430, 488),
+        bancode,
+        fill=color,
+        font=font2
+    )
+    draw.text(
+        (420, 590),
+        enforcer,
+        fill=color,
+        font=font2
+    )
+    if len(reason) > 24:
+        str1, str2 = reasonlimit(reason)
+        draw.text(
+            (390, 695),
+            str1,
+            fill=color,
+            font=font3
+        )
+        draw.text(
+            (100, 780),
+            str2,
+            fill=color,
+            font=font3
+        )
+    else:
+        draw.text(
+            (390, 695),
+            reason,
+            fill=color,
+            font=font3
+        )
+
     id_template.save("user_form.png")
 
     if pfp == None:
@@ -30,7 +92,7 @@ def createform(name, pfp=None):
     except:
         return False
 
-    user_image = user_image.resize((640, 640), Image.LANCZOS)
+    user_image = user_image.resize((1380, 1380), Image.LANCZOS)
     mask = Image.new("L", user_image.size, 0)
     draw = ImageDraw.Draw(mask)
     draw.ellipse((0, 0) + user_image.size, fill=255)
@@ -49,7 +111,7 @@ def createform(name, pfp=None):
     draw = ImageDraw.Draw(mask)
     draw.ellipse((0, 0) + user_image.size, fill=255)
 
-    id_template.paste(user_image, (220, 50), mask)
+    id_template.paste(user_image, (1220, 200), mask)
     id_template.save("user_form.png")
     os.remove("user_pfp.png")
     return True
