@@ -9,11 +9,11 @@ Bro i dont know what to set here, please you set it
 """
 
 
-@Client.on_message(filters.command("start", prefixes="?") & filters.private)
+@Client.on_message(filters.command("start", prefixes="/") & filters.private)
 async def start_all(_, message: Message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
-    bb = await message.reply_text("🔎")
+    bb = await message.reply_text("`COLLECTING YOUR DB...`")
     await asyncio.sleep(1)
     await message.reply_photo(
         photo="https://graph.org/file/982ad57f6a06f5325e6bd.jpg",
@@ -60,7 +60,7 @@ YOU CAN SEND REPORT OF USER BY USING /report bancodes + telegraph proof WE WILL 
                     InlineKeyboardButton(text="Team Samurai", url="https://t.me/team_samuraii")
                 ],
                 [
-                    InlineKeyboardButton(text="Owner", url="https://t.me/"),
+                    InlineKeyboardButton(text="Owner", url="https://t.me/DushmanXRonin"),
                     InlineKeyboardButton(text="Dev", url="https://t.me/ishikki_akabane")
                 ],
                 [
