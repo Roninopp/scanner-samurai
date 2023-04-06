@@ -14,7 +14,6 @@ from samurai.utils.scan_help import check_gban, gban_save, revert_save
 #from samurai.utils.bancode_help import bancode_convo
 
 
-
 #/scan -f 243475585 spamming my gc for fun KCBX021 https://gdfhgjdfg
 def splitting(text):
     text = text.upper()
@@ -78,24 +77,29 @@ async def scan(_: Update, message: Message):
         await message.reply_text("Connecting to Host team-samurai-X for a Force CYBER gban scan........")
 
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
-        await _.send_photo(
-            chat_id=GBAN_CHANNEL_ID,
-            photo="idcard.png",
-            caption=forced_scan_string.format(case_id, target_name, target_id, reason, proof, bancode, user_name),
-            reply_markup=InlineKeyboardMarkup(
-                [
+        aa = createform(target_id, target_name, bancode, user_name, reason)
+        if aa == True:
+            await _.send_photo(
+                chat_id=GBAN_CHANNEL_ID,
+                photo="user_form.png",
+                caption=forced_scan_string.format(case_id, target_name, target_id, reason, proof, bancode, user_name),
+                reply_markup=InlineKeyboardMarkup(
                     [
-                        InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                        [
+                            InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
+                        ]
                     ]
-                ]
+                )
             )
-        )
-        await message.reply_text(scan_approved_string.format("#LethalEliminator", target_name, target_id, reason, user_name))
-        await ubot.send_message(
-            chat_id=SPAM_GROUP,
-            text=f"/gban {target_id} {reason} Proof:{proof}"
-        )
-        return    
+            await message.reply_text(scan_approved_string.format("#LethalEliminator", target_name, target_id, reason, user_name))
+            await ubot.send_message(
+                chat_id=SPAM_GROUP,
+                text=f"/gban {target_id} {reason} Proof:{proof}"
+            )
+            return
+        else:
+            await message.reply_text("Something went wrong!!")
+            return
             
     try:
         target = await pbot.get_users(target_id)
@@ -110,7 +114,7 @@ async def scan(_: Update, message: Message):
 
     try:
         pfp = await tbot.download_profile_photo(target_id, file="user_pfp.jpg", download_big=True)
-        result1 = createform(target_name, pfp=True)
+        result1 = createform(target_id, target_name, bancode, user_name, reason, pfp=True)
     except:
         result1 = createform(target_name, pfp=None)
 
