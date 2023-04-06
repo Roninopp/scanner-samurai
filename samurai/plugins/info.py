@@ -17,6 +17,9 @@ async def info(_, message: Message):
                 user_name = user_first_name + " " + user_last_name
             except:
                 user_name = user_first_name
+            usertag = user.username
+            if usertag == None:
+                usertag = "None"
         else:
             user_id = message.from_user.id
             user_first_name = message.from_user.first_name
@@ -25,6 +28,9 @@ async def info(_, message: Message):
                 user_name = user_first_name + " " + user_last_name
             except:
                 user_name = user_first_name
+            usertag = message.from_user.username
+            if usertag == None:
+                usertag = "None"
     else:
         splitted = message.text.split(" ")
         try:
