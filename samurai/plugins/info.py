@@ -5,7 +5,7 @@ import random
 from samurai.utils.scan_help import check_gban, gban_data
 
 
-@Client.on_message(filters.command(["info", "check"], prefixes="?"))
+@Client.on_message(filters.command(["whois", "tsinfo"], prefixes="?"))
 async def info(_, message: Message):
     if len(message.text.split(" ")) < 2:
         if message.reply_to_message:
@@ -66,19 +66,19 @@ async def info(_, message: Message):
         textt = f"""
 USER INFO in team samurai Database:
 
-👤 Name: {user_name}
-🤵 Username: @{usertag}
-🔖 ID: {user_id}
-🌏 Data Centre ID: {dc_id}
-🤖 Is Bot: {is_bot}
-🔏 Is Restricted: {is_restricted}
+𖣘 Name: {user_name}
+𖣘 Username: @{usertag}
+𖣘 ID: {user_id}
+𖣘 Data Centre ID: {dc_id}
+𖣘 Is Bot: {is_bot}
+𖣘 Is Restricted: {is_restricted}
 「✪」Is Scanned: False
-🌐 Is Verified by Telegram: False
+𖣘 Is Verified by Telegram: False
 
-✍️ Bio: 
+𖣘 Bio: 
 {bio}
 
-🔗 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
+𖣘 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
 """
         await message.reply_text(textt)
     else:
