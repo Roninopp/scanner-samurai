@@ -16,7 +16,7 @@ frevert: **?frevert <id>**
 id: Shows the user_id
 Whois: Shows the info about the user in the database
 token: Use it to get your token for the api
-
+Eval : ONLY INSPECTORS AND OWNER COMMAND
 sudolist: Shows the list of disasters
 scanlist: Shows the list of people who are scanned
 logs: Only for developers
