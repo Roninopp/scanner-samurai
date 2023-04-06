@@ -20,6 +20,9 @@ async def info(_, message: Message):
             usertag = user.username
             if usertag == None:
                 usertag = "None"
+            is_bot = user.is_bot
+            is_restricted = user.is_restricted
+            bio = user.bio or "This User has no About"
         else:
             user_id = message.from_user.id
             user_first_name = message.from_user.first_name
@@ -31,6 +34,9 @@ async def info(_, message: Message):
             usertag = message.from_user.username
             if usertag == None:
                 usertag = "None"
+            is_bot = message.from_user.is_bot
+            is_restricted = message.from_user.is_restricted
+            bio = message.from_user.bio or "This User has no About"
     else:
         splitted = message.text.split(" ")
         try:
@@ -49,7 +55,11 @@ async def info(_, message: Message):
         usertag = user.username
         if usertag == None:
             usertag = "None"
+        is_bot = user.is_bot
+        is_restricted = user.is_restricted
+        bio = user.bio or "This User has no About"
 
+    dc_id = _.get_dc_id()
     check = check_gban(user_id)
     if check == False:
         crime = random.randint(100, 175)
@@ -59,14 +69,14 @@ USER INFO in team samurai Database:
 👤 Name: {user_name}
 🤵 Username: @{usertag}
 🔖 ID: {user_id}
-🌏 Data Centre ID: Can't get dc id
-🤖 Is Bot: False
-🔏 Is Restricted: False
+🌏 Data Centre ID: {dc_id}
+🤖 Is Bot: {is_bot}
+🔏 Is Restricted: {is_restricted}
 「✪」Is Scanned: False
 🌐 Is Verified by Telegram: False
 
 ✍️ Bio: 
-This User has no About
+{bio}
 
 🔗 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
 """
