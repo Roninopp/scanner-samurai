@@ -54,8 +54,6 @@ def ReplyCheck(message: Message):
     & ~filters.via_bot
 )
 async def eval_func_init(bot, message):
-    if message.from_user.id not in DEV_USERS:
-        return
     await evaluation_func(bot, message)
 
 
@@ -65,8 +63,6 @@ async def eval_func_init(bot, message):
     & ~filters.via_bot
 )
 async def eval_func_edited(bot, message):
-    if message.from_user.id not in DEV_USERS:
-        return
     await evaluation_func(bot, message)
 
 
@@ -139,8 +135,6 @@ async def aexec(code, b, m, r, d):
     & ~filters.via_bot
 )
 async def execution_func_edited(bot, message):
-    if message.from_user.id not in DEV_USERS:
-        return
     await execution(bot, message)
 
 
@@ -150,8 +144,6 @@ async def execution_func_edited(bot, message):
     & ~filters.via_bot
 )
 async def execution_func(bot, message):
-    if message.from_user.id not in DEV_USERS:
-        return
     await execution(bot, message)
 
 
