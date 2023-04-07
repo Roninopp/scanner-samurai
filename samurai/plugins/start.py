@@ -30,7 +30,7 @@ HERE IS A HELP BANCODES OF SAMURAI SCANNER:-
 """
 
 
-@Client.on_message(filters.command("start", prefixes="/") & filters.private)
+@Client.on_message(filters.command("start") & filters.private)
 async def start_all(_, message: Message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
