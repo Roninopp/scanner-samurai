@@ -3,13 +3,13 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User
 
 REQUEST_STRING = """
-──────────────────
+$Cymatic Scan Request
 USER ID: `{}`
 NAME: [{}](tg://openmessage?user_id={})
 TARGET USER: {}
 TARGET NAME: [{}](tg://openmessage?user_id={})
 REASON: {}
-──────────────────
+
 """
 
 @Client.on_message(filters.command(["appeal", "report"], prefixes="/"))
