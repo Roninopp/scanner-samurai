@@ -56,7 +56,7 @@ Created and developed For removing toxic people from telegram
                     InlineKeyboardButton(text="『BANCODES』⁪⁬⁮⁮⁮⁮", callback_data="bancode_call")
                 ],
                 [
-                    InlineKeyboardButton(text="『NETWORK』⁪⁬⁮⁮⁮⁮", url="https://t.me/team_samuraii"),
+                    InlineKeyboardButton(text="『NETWORK』⁪⁬⁮⁮⁮⁮", url="https://t.me/teamsamuraii"),
                     InlineKeyboardButton(text="『SUPPORT GROUP』⁪⁬⁮⁮⁮⁮", url=f"https://t.me/{SUPPORT_CHAT}")
                 ]
             ]
@@ -78,7 +78,7 @@ YOU CAN SEND REPORT OF USER BY USING /report bancodes + telegraph proof WE WILL 
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="Team Samurai", url="https://t.me/team_samuraii")
+                    InlineKeyboardButton(text="Team Samurai", url="https://t.me/teamsamuraii")
                 ],
                 [
                     InlineKeyboardButton(text="【OWNER】", url="https://t.me/DushmanXRonin"),
