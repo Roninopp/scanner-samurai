@@ -37,7 +37,7 @@ async def start_all(_, message: Message):
     bb = await message.reply_text("`COLLECTING YOUR DB.......`")
     await asyncio.sleep(1)
     await message.reply_photo(
-        photo="https://graph.org/file/982ad57f6a06f5325e6bd.jpg",
+        photo="https://telegra.ph/file/2123258da3308f46782d8.jpg",
         caption=f"""
 WELCOME!! [{user_name}](tg://openmessage?user_id={user_id})
 ─────────────────
