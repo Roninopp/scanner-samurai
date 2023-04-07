@@ -77,7 +77,7 @@ async def scan(_: Update, message: Message):
         await message.reply_text("`Connecting to Host team-samurai-X for a Force CYBER gban scan........`")
 
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
-        aa = createform(target_id, target_name, bancode, user_name, reason)
+        aa = createform(str(target_id), target_name, bancode, user_name, reason)
         if aa == True:
             await _.send_photo(
                 chat_id=GBAN_CHANNEL_ID,
@@ -114,9 +114,9 @@ async def scan(_: Update, message: Message):
 
     try:
         pfp = await tbot.download_profile_photo(target_id, file="user_pfp.jpg", download_big=True)
-        result1 = createform(target_id, target_name, bancode, user_name, reason, pfp=True)
+        result1 = createform(str(target_id), target_name, bancode, user_name, reason, pfp=True)
     except:
-        result1 = createform(target_name, pfp=None)
+        result1 = createform(str(target_id), target_name, bancode, user_name, reason, pfp=None)
 
     crime_co = 200
 
