@@ -29,10 +29,11 @@ import os
 import sys
 import traceback
 
-from pyrogram import filters, Client
+from pyrogram import filters
 from pyrogram.types import Message
 
 from samurai.database import client
+from samurai import DEV_USERS, ubot
 
 
 def ReplyCheck(message: Message):
@@ -47,27 +48,29 @@ def ReplyCheck(message: Message):
     return reply_id
 
 
-@Client.on_message(
+@ubot.on_message(
     filters.command("eval", ".")
-    & filters.me
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def eval_func_init(bot, message):
+    if message.from_user.id not in DEV_USERS:
+        return
     await evaluation_func(bot, message)
 
 
-@Client.on_edited_message(
+@ubot.on_edited_message(
     filters.command("eval", ".")
-    & filters.me
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def eval_func_edited(bot, message):
+    if message.from_user.id not in DEV_USERS:
+        return
     await evaluation_func(bot, message)
 
 
-async def evaluation_func(bot: Client, message: Message):
+async def evaluation_func(bot: ubot, message: Message):
     status_message = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
 
@@ -130,27 +133,29 @@ async def aexec(code, b, m, r, d):
     return await locals()["__aexec"](b, m, r, d)
 
 
-@Client.on_edited_message(
+@ubot.on_edited_message(
     filters.command("exec", ".")
-    & filters.me
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def execution_func_edited(bot, message):
+    if message.from_user.id not in DEV_USERS:
+        return
     await execution(bot, message)
 
 
-@Client.on_message(
+@ubot.on_message(
     filters.command("exec", ".")
-    & filters.me
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def execution_func(bot, message):
+    if message.from_user.id not in DEV_USERS:
+        return
     await execution(bot, message)
 
 
-async def execution(bot: Client, message: Message):
+async def execution(bot: ubot, message: Message):
     cmd = message.text.split(" ", maxsplit=1)[1]
 
     reply_to_id = message.id
