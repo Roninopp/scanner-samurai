@@ -22,7 +22,7 @@ async def info(_, message: Message):
                 usertag = "None"
             is_bot = user.is_bot
             is_restricted = user.is_restricted
-            bio = user.bio or "This User has no About"
+            #bio = user.bio or "This User has no About"
         else:
             user_id = message.from_user.id
             user_first_name = message.from_user.first_name
@@ -36,7 +36,7 @@ async def info(_, message: Message):
                 usertag = "None"
             is_bot = message.from_user.is_bot
             is_restricted = message.from_user.is_restricted
-            bio = message.from_user.bio or "This User has no About"
+            #bio = message.from_user.bio or "This User has no About"
     else:
         splitted = message.text.split(" ")
         try:
@@ -57,7 +57,7 @@ async def info(_, message: Message):
             usertag = "None"
         is_bot = user.is_bot
         is_restricted = user.is_restricted
-        bio = user.bio or "This User has no About"
+        #bio = user.bio or "This User has no About"
 
     dc_id = _.get_dc_id()
     check = check_gban(user_id)
@@ -72,11 +72,8 @@ USER INFO in team samurai Database:
 𖣘 Data Centre ID: {dc_id}
 𖣘 Is Bot: {is_bot}
 𖣘 Is Restricted: {is_restricted}
-「✪」Is Scanned: False
 𖣘 Is Verified by Telegram: False
-
-𖣘 Bio: 
-{bio}
+「✪」Is Scanned: False
 
 𖣘 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
 """
@@ -85,15 +82,17 @@ USER INFO in team samurai Database:
         crime = "Above 200"
         reason, proof, bancode, enforcer = gban_data(user_id)
         textt = f"""
-> INFO:-
+USER INFO in team samurai Database:
 
-> User ID: {user_id}
-> Name: {user_name}
-> Crime Co.: {crime}
-> Status: Scanned
-> Reason: {reason}
-> Proof: {proof}
-> Bancode: {bancode}
-> Enforcer: {enforcer}
+𖣘 Name: {user_name}
+𖣘 Username: @{usertag}
+𖣘 ID: {user_id}
+𖣘 Data Centre ID: {dc_id}
+𖣘 Is Bot: {is_bot}
+𖣘 Is Restricted: {is_restricted}
+𖣘 Is Verified by Telegram: False
+「✪」Is Scanned: True
+
+𖣘 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
 """
         await message.reply_text(textt)
