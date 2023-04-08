@@ -170,3 +170,10 @@ async def start_grp(_, message: Message):
     user_id = message.from_user.id
     uptime = get_readable_time((time.time() - StartTime))
     await message.reply_text("𝙰𝙻𝙸𝚅𝙴 𝚂𝚒𝚗𝚌𝚎:\n`{}`".format(uptime))
+
+
+@ubot.on_message(filters.command(["start", "ping"], prefixes="?") & ~filters.private)
+async def ubstart_grp(_, message: Message):
+    user_id = message.from_user.id
+    uptime = get_readable_time((time.time() - StartTime))
+    await message.reply_text("𝙰𝙻𝙸𝚅𝙴 𝚂𝚒𝚗𝚌𝚎:\n`{}`".format(uptime))
