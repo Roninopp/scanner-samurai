@@ -131,5 +131,5 @@ async def stats(_, message: Message):
 """
     await message.reply_photo(
         photo="https://telegra.ph/file/ab422614c78919a7b8fb1.jpg",
-        caption=textt
+        caption=text
     )
