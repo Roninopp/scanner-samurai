@@ -94,7 +94,7 @@ def get_readable_time(seconds: int) -> str:
 @Client.on_message(filters.command("stats", prefixes="?"))
 async def stats(_, message: Message):
     uptime = get_readable_time((time.time() - StartTime))
-    total = Len(get_gban_list())
+    total = len(get_gban_list())
     enf = ""
     ins = ""
     for enforcer in SUDOLIST:
