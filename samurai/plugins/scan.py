@@ -33,7 +33,7 @@ def splitting(text):
     return flag, target_id, reason, bancode, proof
 
 
-@Client.on_message(filters.command("scan", prefixes="?") & ~filters.private)
+@Client.on_message(filters.command("bscan", prefixes="?") & ~filters.private)
 async def scan(_: Update, message: Message):
 
     user_id = message.from_user.id
@@ -208,7 +208,7 @@ async def about_commands_callbacc(_, CallbackQuery):
         )
 
 
-@Client.on_message(filters.command("revert", prefixes="?") & ~filters.private)
+@Client.on_message(filters.command("brevert", prefixes="?") & ~filters.private)
 async def revert(_: Update, message: Message):
 
     user_id = message.from_user.id
