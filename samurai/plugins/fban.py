@@ -4,7 +4,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
 
 
-@Client.on_message(filters.command("fscan", prefixes="?") & ~filters.private)
+@ubot.on_message(filters.command("fscan", prefixes="?") & ~filters.private)
 async def fscan(_: Update, message: Message):
 
     user_id = message.from_user.id
@@ -34,7 +34,7 @@ async def fscan(_: Update, message: Message):
         return await message.reply_text(f"ERROR!!")
 
 
-@Client.on_message(filters.command("frevert", prefixes="?") & ~filters.private)
+@ubot.on_message(filters.command("frevert", prefixes="?") & ~filters.private)
 async def unfscan(_: Update, message: Message):
     user_id = message.from_user.id
     if user_id not in SUPPORT_USERS:
