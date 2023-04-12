@@ -1,8 +1,8 @@
-from samurai import pbot
+from samurai import pbot, ubot
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User
 
-@Client.on_message(filters.command("id", prefixes="?"))
+@ubot.on_message(filters.command("id", prefixes="?"))
 async def user_id(_, message: Message):
     if message.reply_to_message:
         replied_user_id = message.reply_to_message.from_user.id
