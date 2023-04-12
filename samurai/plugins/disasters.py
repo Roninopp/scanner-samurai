@@ -1,10 +1,10 @@
-from samurai import pbot, OWNER_ID, SUDOLIST, SUPPORT_USERS, SUPPORTLIST, DEV_LIST, DEV_USERS, StartTime
+from samurai import pbot, OWNER_ID, SUDOLIST, SUPPORT_USERS, SUPPORTLIST, DEV_LIST, DEV_USERS, StartTime, ubot
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from samurai.database import get_gban_list
 import time
 
-@Client.on_message(filters.command("sudolist", prefixes="?"))
+@ubot.on_message(filters.command("sudolist", prefixes="?"))
 async def disaster(_, message: Message):
     if message.from_user.id not in SUPPORT_USERS:
         return await message.reply_text("ONLY FOR APPROVED USERS!!")
@@ -39,7 +39,7 @@ async def disaster(_, message: Message):
     await message.reply_text(final)
 
 
-@Client.on_message(filters.command("scanlist", prefixes="?"))
+@ubot.on_message(filters.command("scanlist", prefixes="?"))
 async def scanlist(_, message: Message):
     banned_users = get_gban_list()
     
@@ -91,7 +91,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-@Client.on_message(filters.command("stats", prefixes="?"))
+@ubot.on_message(filters.command("stats", prefixes="?"))
 async def stats(_, message: Message):
     uptime = get_readable_time((time.time() - StartTime))
     total = len(get_gban_list())
