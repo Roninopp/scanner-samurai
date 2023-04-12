@@ -79,7 +79,7 @@ async def ubscan(_: Update, message: Message):
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
         aa = createform(str(target_id), target_name, bancode, user_name, reason)
         if aa == True:
-            await _.send_photo(
+            await pbot.send_photo(
                 chat_id=GBAN_CHANNEL_ID,
                 photo="user_form.png",
                 caption=forced_scan_string.format(case_id, target_name, target_id, reason, proof, bancode, user_name),
@@ -121,7 +121,7 @@ async def ubscan(_: Update, message: Message):
     crime_co = 200
 
     if flag == "-R":
-        await _.send_photo(
+        await pbot.send_photo(
             chat_id=GBAN_CHANNEL_ID,
             photo="user_form.png",
             caption=scan_request_string.format(case_id, target_name, target_id, reason, proof, bancode, user_name),
@@ -145,7 +145,7 @@ async def ubscan(_: Update, message: Message):
             return await message.reply_text("Only Enforcers can make me scan!!!")
 
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
-        await _.send_photo(
+        await pbot.send_photo(
             chat_id=GBAN_CHANNEL_ID,
             photo="user_form.png",
             caption=scan_string.format(case_id, target_name, target_id, reason, proof, bancode, user_name),
