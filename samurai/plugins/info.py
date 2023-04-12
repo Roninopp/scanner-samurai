@@ -1,11 +1,11 @@
-from samurai import pbot, tbot, OWNER_ID, SUDOLIST, DEV_LIST, SUPPORTLIST
+from samurai import pbot, tbot, OWNER_ID, SUDOLIST, DEV_LIST, SUPPORTLIST, ubot
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton
 import random
 from samurai.utils.scan_help import check_gban, gban_data
 
 
-@Client.on_message(filters.command(["whois", "tsinfo"], prefixes="?"))
+@ubot.on_message(filters.command(["whois", "tsinfo"], prefixes="?"))
 async def info(_, message: Message):
     if len(message.text.split(" ")) < 2:
         if message.reply_to_message:
