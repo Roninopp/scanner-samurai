@@ -4,7 +4,7 @@ from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyb
 import time
 
 
-@Client.on_message(filters.command("help", prefixes="?"))
+@ubot.on_message(filters.command("help", prefixes="?"))
 async def start_all(_, message: Message):
     try:
         tex = message.text.split(" ")[1]
