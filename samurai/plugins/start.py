@@ -93,8 +93,6 @@ YOU CAN SEND REPORT OF USER BY USING /report bancodes + telegraph proof WE WILL 
 
 @Client.on_message(filters.command("bancode"))
 async def bancode(_, message: Message):
-    bancode_text = "Bancodes for Kazuma Clan:\n"
-    bancode_text += bancodes
     await message.reply_text(bancode_text)
 
 
