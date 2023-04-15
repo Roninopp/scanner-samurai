@@ -1,4 +1,4 @@
-from samurai import pbot, tbot, OWNER_ID, SUDOLIST, DEV_LIST, SUPPORTLIST, ubot
+from samurai import pbot, tbot, OWNER_ID, SUDOLIST, DEV_LIST, SUPPORTLIST, ubot, SUPPORT_USERS
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton
 import random
@@ -7,6 +7,11 @@ from samurai.utils.scan_help import check_gban, gban_data
 
 @ubot.on_message(filters.command(["whois", "tsinfo"], prefixes="?"))
 async def info(_, message: Message):
+    user_id = message.from_user.id
+
+    if user_id not in SUPPORT_USERS:
+        return await message.reply_text("Only Enforcers can use this.")
+
     if len(message.text.split(" ")) < 2:
         if message.reply_to_message:
             user = message.reply_to_message.from_user
