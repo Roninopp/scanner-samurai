@@ -41,6 +41,11 @@ async def disaster(_, message: Message):
 
 @ubot.on_message(filters.command("scanlist", prefixes="?"))
 async def scanlist(_, message: Message):
+    user_id = message.from_user.id
+
+    if user_id not in SUPPORT_USERS:
+        return await message.reply_text("Only Enforcers can use this.")
+        
     banned_users = get_gban_list()
     
     if not banned_users:
@@ -94,6 +99,11 @@ def get_readable_time(seconds: int) -> str:
 @ubot.on_message(filters.command("stats", prefixes="?"))
 async def stats(_, message: Message):
     uptime = get_readable_time((time.time() - StartTime))
+    user_id = message.from_user.id
+
+    if user_id not in SUPPORT_USERS:
+        return await message.reply_text("Only Enforcers can use this.")
+
     total = len(get_gban_list())
     enf = ""
     ins = ""
