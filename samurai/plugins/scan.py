@@ -22,7 +22,7 @@ def splitting(text):
     remove_flag = remove_cmd.split(None, 1)[1]
     target_id = remove_flag.split(" ")[0]
     remove_id = remove_flag.split(None, 1)[1]
-    dividee = remove_id.partition("TSX")
+    dividee = remove_id.partition("TSS")
     reason = dividee[0]
     divide_reason = remove_id.partition(reason)[2]
     bancode = divide_reason.split(" ")[0]
@@ -39,7 +39,7 @@ async def scan(_: Update, message: Message):
     user_id = message.from_user.id
 
     if user_id not in SUPPORT_USERS:
-        return await message.reply_text("Only Inspectors can use this.")
+        return await message.reply_text("Only Enforcers can use this.")
 
     user_name = message.from_user.first_name
     stext = message.text
@@ -72,7 +72,7 @@ async def scan(_: Update, message: Message):
             target_name = "Nodata"
 
         if user_id not in SUDO_USERS:
-            return await message.reply_text("Only Enforcers can force me to scan!!!")
+            return await message.reply_text("Only Inspectors can force me to scan!!!")
 
         await message.reply_text("`Connecting to Host team-samurai-X for a Force CYBER gban scan........`")
 
@@ -142,7 +142,7 @@ async def scan(_: Update, message: Message):
 
     elif flag == "-G":
         if user_id not in SUDO_USERS:
-            return await message.reply_text("Only Enforcers can make me scan!!!")
+            return await message.reply_text("Only Inspectors can make me scan!!!")
 
         gban_save(target_id, target_name, reason, proof, bancode, user_name)
         await _.send_photo(
@@ -212,7 +212,7 @@ async def about_commands_callbacc(_, CallbackQuery):
 async def revert(_: Update, message: Message):
 
     user_id = message.from_user.id
-    if user_id not in SUPPORT_USERS:
+    if user_id not in SUDO_USERS:
         return await message.reply_text("Only Inspectors can use this.")
 
     user_name = message.from_user.first_name
