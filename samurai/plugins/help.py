@@ -1,4 +1,4 @@
-from samurai import pbot, ubot, SUPPORT_CHAT
+from samurai import pbot, ubot, SUPPORT_CHAT, SUPPORT_USERS
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton
 import time
@@ -6,6 +6,11 @@ import time
 
 @ubot.on_message(filters.command("help", prefixes="?"))
 async def start_all(_, message: Message):
+    user_id = message.from_user.id
+
+    if user_id not in SUPPORT_USERS:
+        return await message.reply_text("Only Enforcers can use this.")
+
     try:
         tex = message.text.split(" ")[1]
     except:
