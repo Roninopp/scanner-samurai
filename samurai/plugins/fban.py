@@ -8,7 +8,7 @@ from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyb
 async def fscan(_: Update, message: Message):
 
     user_id = message.from_user.id
-    if user_id not in SUPPORT_USERS:
+    if user_id not in SUDO_USERS:
         return await message.reply_text("Only Inspectors can use this.")
     
     stext = message.text
@@ -37,7 +37,7 @@ async def fscan(_: Update, message: Message):
 @ubot.on_message(filters.command("frevert", prefixes="?") & ~filters.private)
 async def unfscan(_: Update, message: Message):
     user_id = message.from_user.id
-    if user_id not in SUPPORT_USERS:
+    if user_id not in SUDO_USERS:
         return await message.reply_text("Only Inspectors can use this.")
     
     stext = message.text
