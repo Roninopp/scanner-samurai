@@ -7,7 +7,7 @@ async def user_id(_, message: Message):
     user_id = message.from_user.id
 
     if user_id not in SUPPORT_USERS:
-        return await message.reply_text("Only Enforcers can use this.")
+        return
 
     if message.reply_to_message:
         replied_user_id = message.reply_to_message.from_user.id
