@@ -74,7 +74,7 @@ USER INFO in team samurai Database:
 𖣘 Name: {user_name}
 𖣘 Username: @{usertag}
 𖣘 ID: {user_id}
-𖣘 Data Centre ID: {dc_id}
+𖣘 Data Centre ID: 5
 𖣘 Is Bot: {is_bot}
 𖣘 Is Restricted: {is_restricted}
 𖣘 Is Verified by Telegram: False
@@ -92,7 +92,7 @@ USER INFO in team samurai Database:
 𖣘 Name: {user_name}
 𖣘 Username: @{usertag}
 𖣘 ID: {user_id}
-𖣘 Data Centre ID: {dc_id}
+𖣘 Data Centre ID: 5
 𖣘 Is Bot: {is_bot}
 𖣘 Is Restricted: {is_restricted}
 𖣘 Is Verified by Telegram: False
