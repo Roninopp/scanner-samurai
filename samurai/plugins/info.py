@@ -65,6 +65,15 @@ async def info(_, message: Message):
         #bio = user.bio or "This User has no About"
 
     #dc_id = _.get_dc_id()
+    if user_id in SUDOLIST:
+        rank = "Inspector"
+    elif user_id in SUPPORTLIST:
+        rank = "Enforcer"
+    elif user_id in OWNER_ID:
+        rank = "MASTER"
+    else:
+        rank = "civilian"
+
     check = check_gban(user_id)
     if check == False:
         crime = random.randint(100, 175)
@@ -78,6 +87,7 @@ USER INFO in team samurai Database:
 𖣘 Is Bot: {is_bot}
 𖣘 Is Restricted: {is_restricted}
 𖣘 Is Verified by Telegram: False
+𖣘 Rank: {rank}
 「✪」Is Scanned: False
 
 𖣘 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
@@ -96,6 +106,7 @@ USER INFO in team samurai Database:
 𖣘 Is Bot: {is_bot}
 𖣘 Is Restricted: {is_restricted}
 𖣘 Is Verified by Telegram: False
+𖣘 Rank: {rank}
 「✪」Is Scanned: True
 
 𖣘 Permanent Link To Profile: [TS-USER](tg://openmessage?user_id={user_id})
