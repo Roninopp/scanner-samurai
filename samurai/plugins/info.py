@@ -64,7 +64,7 @@ async def info(_, message: Message):
         is_restricted = user.is_restricted
         #bio = user.bio or "This User has no About"
 
-    dc_id = _.get_dc_id()
+    #dc_id = _.get_dc_id()
     check = check_gban(user_id)
     if check == False:
         crime = random.randint(100, 175)
