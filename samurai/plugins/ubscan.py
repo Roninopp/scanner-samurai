@@ -96,6 +96,8 @@ async def ubscan(_: Update, message: Message):
                 chat_id=SPAM_GROUP,
                 text=f"/gban {target_id} {reason} Proof:{proof}"
             )
+            await asyncio.sleep(5.0)
+            await message.reply_text("Cyber scan completed!!!")
             return
         else:
             await message.reply_text("Something went wrong!!")
@@ -162,6 +164,8 @@ async def ubscan(_: Update, message: Message):
             chat_id=SPAM_GROUP,
             text=f"/gban {target_id} {reason} Proof:{proof}"
         )
+        await asyncio.sleep(5.0)
+        await message.reply_text("Cyber scan completed!!!")
     else:
         await message.reply_text("Invalid Flag!!!")
 
