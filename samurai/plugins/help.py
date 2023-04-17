@@ -20,11 +20,11 @@ HELP: use like this-
 
 COMMANDS:
 ```scan
-revert
-dev
-whois
-flags
-extra```
+REVERT
+DEV
+WHOIS
+FLAGS
+EXTRAS```
 """
         return await message.reply_text(textt)
     if tex.upper() in ["SCAN"]:
