@@ -24,6 +24,7 @@ REVERT
 DEV
 WHOIS
 FLAGS
+BANCODES
 EXTRAS```
 """
         return await message.reply_text(textt)
@@ -85,6 +86,29 @@ Help:
 -f : Force the bot to scan the user, even if he is not identified by the bot
 -r : Request a scan(For inspectors)
 -g : Noraml Scan
+"""
+    elif tex.upper() in ["BANCODES"]:
+        textt = """
+HERE IS A HELP BANCODES OF SAMURAI SCANNER:-
+• `{TSSx00}` - Scammer
+• `{TSSx01}` - SPAM ADDING MEMBER
+• `{TSSx02}` - CHILD ABUSE
+• `{TSSx03}` - ILLEGAL
+• `{TSSx04}` - FRAUD PROMOTION  [ANY KIND]
+• `{TSSx05}` - PHISHING
+• `{TSSx06}` - BAN EVASION
+• `{TSSx07}` - RAID/SPAM INFLAMED
+• `{TSSx08}` - ADDING SPAMBOTS/RAIDERS
+• `{TSSx09}` - KRIMINALANT
+• `{TSSx10}` - SCAMMER
+• `{TSSx11}` - ABUSE SPAM
+• `{TSSx12}` - IMPERSONATION
+• `{TSSx13}` - MD/BTC SCAM
+• `{TSSx14}` - RAID INITIALIZER
+• `{TSSx15}` - RAID PARTICIPANT
+• `{TSSx16}` - SPAMBOT
+• `{TSSx17}` - CYBER THREATENING / CYBER BULLY
+• `{TSSx18}` - NSFW SPAMMER
 """
     else:
         textt = "Invalid!! help"
