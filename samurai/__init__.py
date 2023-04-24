@@ -1,5 +1,6 @@
 import logging
 import time
+import os
 
 from pyrogram import Client
 from telethon import TelegramClient
@@ -20,14 +21,15 @@ FBAN_SPAM = -1001842751614 #-1001833557507
 
 DOWNLOAD_DIRECTORY = "./"
 
+SUDOLIST = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+SUPPORTLIST = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
+
 OWNER_ID = [5030730429, 1793699293]
-SUDOLIST = [] #Inspectors
-SUPPORTLIST = [] #Enforcer
 DEV_LIST = []
 
 DEV_USERS = DEV_LIST + OWNER_ID
-SUDO_USERS = SUDOLIST + DEV_USERS #Inspectors
-SUPPORT_USERS = SUPPORTLIST + SUDO_USERS #Enforcer
+SUDO_USERS = list(SUDOLIST) + DEV_USERS #Inspectors
+SUPPORT_USERS = list(SUPPORTLIST) + SUDO_USERS #Enforcer
 
 
 REQUEST_IMG = "https://telegra.ph/file/9ed4c2423cb907046f254.jpg"
