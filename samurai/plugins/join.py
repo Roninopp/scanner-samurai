@@ -6,6 +6,7 @@ from pyrogram.errors import UserAlreadyParticipant, FloodWait
 
 from samurai import pbot, ubot, SPAM_GROUP, SUDO_USERS
 
+
 @pbot.on_message(
     filters.command(["userbotjoin", "botjoin", "join"]) & ~filters.private & ~filters.bot
 )
@@ -41,6 +42,7 @@ async def joinchat(client, message):
         )
         return
     
+
 @pbot.on_message(
     filters.command(["joinhere"]) & ~filters.private & ~filters.bot
 )
@@ -80,7 +82,8 @@ async def addchannel(client, message):
         )
         return
 
-@USER.on_message(filters.group & command(["userbotleave", "leave"]))
+
+@ubot.on_message(filters.group & command(["userbotleave", "leave"]))
 async def rem(USER, message):
     if message.from_user.id not in SUDO_USERS:
         await message.reply_text(
