@@ -1,5 +1,4 @@
 from samurai import pbot, tbot, SUDO_USERS, GBAN_CHANNEL_ID, SPAM_GROUP, SUPPORT_CHAT, SUPPORT_USERS
-from samurai.plugins.api import token_gen_api
 from samurai.utils.token_help import token_save, check_token
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
