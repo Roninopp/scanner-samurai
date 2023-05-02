@@ -101,14 +101,14 @@ async def stats(_, message: Message):
     ins = ""
     for enforcer in SUDOLIST:
         try:
-            user = pbot.get_users(enforcer)
+            user = await pbot.get_users(enforcer)
             devname = user.first_name
         except:
             devname = "Dragon"
         enf += f"✯ [{devname}](tg://openmessage?user_id={enforcer})\n"
     for inspector in SUPPORTLIST:
         try:
-            user = pbot.get_users(inspector)
+            user = await pbot.get_users(inspector)
             devname = user.first_name
         except:
             devname = "Demon"
@@ -126,9 +126,9 @@ async def stats(_, message: Message):
 
    ┗━━✦❘༻    [NETWORK](https://t.me/TEAMSAMURAII)       ༺❘✦━━┛
 
-⊂ ✭𝙴𝙽𝙵𝙾𝙲𝚁𝙴𝚁𝚂 
+⊂ ✭I𝙽𝚂𝙿𝙴𝙲𝚃𝙾𝚁𝚂
 {enf}
-⊂ ✭𝙸𝙽𝚂𝙿𝙴𝙲𝚃𝙾𝚁𝚂
+⊂ ✭𝙴𝙽𝙵𝙾𝙲𝚁𝙴𝚁𝚂 
 {ins}
 """
     await message.reply_photo(
