@@ -8,7 +8,11 @@ def token_save(userid, token_api, level):
         "token": token_api,
         "level": level
     }
-    token_db.insert_one(token_dict)
+    try:
+        token_db.insert_one(token_dict)
+        retunr "DONE!!"
+    except:
+        return "lol"
         
 
 def check_token(user_id):
