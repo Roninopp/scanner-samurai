@@ -9,27 +9,19 @@ async def disaster(_, message: Message):
     if message.from_user.id not in SUPPORT_USERS:
         return await message.reply_text("ONLY FOR APPROVED USERS!!")
 
-    final = "Members of the Team Samurai:\n\nENFORCERS:\n"
-    for dev in DEV_LIST:
-        try:
-            user = pbot.get_users(dev)
-            devname = user.first_name
-        except:
-            devname = "Dev"
-
-        final += f"✯ [{devname}](tg://openmessage?user_id={dev})\n"
+    final = "Members of the Team Samurai:\n\nINSPECTOR:\n"
     for enforcer in SUDOLIST:
         try:
-            user = pbot.get_users(enforcer)
+            user = await pbot.get_users(enforcer)
             devname = user.first_name
         except:
             devname = "Dragon"
 
         final += f"✯ [{devname}](tg://openmessage?user_id={enforcer})\n"
-    final += "\nINSPECTORS:\n"
+    final += "\nENFORCER:\n"
     for inspector in SUPPORTLIST:
         try:
-            user = pbot.get_users(inspector)
+            user = await pbot.get_users(inspector)
             devname = user.first_name
         except:
             devname = "Demon"
