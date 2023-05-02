@@ -26,19 +26,21 @@ async def joinchat(client, message):
 
     try:
         user = await ubot.get_me()
+        bot_user = user.first_name
     except:
-        user.first_name = "Samurai"
+        bot_user = "Samurai"
     try: 
         await ubot.join_chat(f"@{username}")
+        await message.reply_text("joined!!")
     except UserAlreadyParticipant:
         await message.reply_text(
-            f"🔴 **{user.first_name} already join this group !!**",
+            f"🔴 **{bot_user} already join this group !!**",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"❌ **Assistant ({user.first_name}) can't join your group due to many join requests for userbot!**\n‼️ Make sure the user is not banned in the group."
-            f"\n\n» `Manually add the {user.first_name} to your group`",
+            f"❌ **Assistant ({bot_user}) can't join your group due to many join requests for userbot!**\n‼️ Make sure the user is not banned in the group."
+            f"\n\n» `Manually add the {bot_user} to your group`",
         )
         return
     
