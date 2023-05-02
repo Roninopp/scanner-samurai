@@ -83,7 +83,7 @@ async def addchannel(client, message):
         return
 
 
-@ubot.on_message(filters.group & command(["userbotleave", "leave"]))
+@ubot.on_message(filters.group & filters.command(["userbotleave", "leave"]))
 async def rem(USER, message):
     if message.from_user.id not in SUDO_USERS:
         await message.reply_text(
