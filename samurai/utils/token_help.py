@@ -11,7 +11,7 @@ def token_save(userid, token_api, level):
     try:
         token_db.insert_one(token_dict)
         lol = "DONE!!"
-        retunr lol
+        return lol
     except:
         lol = "lol"
         return lol
