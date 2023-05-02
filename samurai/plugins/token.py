@@ -1,6 +1,6 @@
 from samurai import pbot, tbot, SUDO_USERS, GBAN_CHANNEL_ID, SPAM_GROUP, SUPPORT_CHAT, SUPPORT_USERS
 from samurai.plugins.api import token_gen_api
-
+from samurai.utils.token_help import token_save, check_token
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
 import requests
@@ -20,7 +20,7 @@ def create_token(user_id):
     return aa
 
 
-@Client.on_message(filters.command("token", prefixes="?"))
+@Client.on_message(filters.command("token"))
 async def token_gen(_, message: Message):
     user_id = message.from_user.id
 
@@ -34,7 +34,7 @@ async def token_gen(_, message: Message):
         token_save(str(user_id), tokenn, level)
         await message.reply_text(f"INSPECTOR level Token created successfully!\n\n`{tokenn}`")
 
-        creation = token_gen_api(str(user_id), tokenn, level)
+        creation = token_save(str(user_id), tokenn, level)
         if creation != "DONE!!":
             await message.reply_text(f"Opps!!\nTechnical error, please inform the [developers](https://t.me/{SUPPORT_CHAT}] that your token not activated!")
         else:
