@@ -10,9 +10,11 @@ def token_save(userid, token_api, level):
     }
     try:
         token_db.insert_one(token_dict)
-        retunr "DONE!!"
+        lol = "DONE!!"
+        retunr lol
     except:
-        return "lol"
+        lol = "lol"
+        return lol
         
 
 def check_token(user_id):
@@ -23,4 +25,5 @@ def check_token(user_id):
         level = data["level"]
         return True, level, token
     else:
-        return False, "lol", "lol"
+        lol = "lol"
+        return False, lol, lol
