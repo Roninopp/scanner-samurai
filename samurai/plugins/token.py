@@ -3,7 +3,7 @@ from samurai.utils.token_help import token_save, check_token
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
 import requests
-
+import random
 api_url = ""
 api_token = ""
 
