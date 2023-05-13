@@ -21,7 +21,7 @@ async def joinchat(client, message):
         Test = message.text.split(" ")
         username = Test[1].replace("@", "")
     else:
-        await message.reply_text("Format: /join @username")
+        await message.reply_text("Format: ? @username")
         return
 
     try:
