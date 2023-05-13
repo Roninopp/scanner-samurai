@@ -97,7 +97,7 @@ USER INFO in team samurai Database:
         crime = "Above 200"
         reason, proof, bancode, enforcer = gban_data(user_id)
         textt = f"""
-USER INFO in team samurai Database:
+USER INFO in team Serenity Database:
 
 𖣘 Name: {user_name}
 𖣘 Username: @{usertag}
