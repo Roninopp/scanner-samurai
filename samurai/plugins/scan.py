@@ -182,13 +182,6 @@ async def about_commands_callbacc(_, CallbackQuery):
         )
         await CallbackQuery.message.edit_caption(
             scan_approved_string.format("#LethalEliminator", target_name, target_id, reason, user_name),
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
-                    ]
-                ]
-            )
         )
 
 
@@ -197,14 +190,7 @@ async def about_commands_callbacc(_, CallbackQuery):
     sender_id = CallbackQuery.from_user.id
     if sender_id in SUDO_USERS:
         await CallbackQuery.message.edit_caption(
-            reject_string,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text="Event", url=f"https://t.me/{SUPPORT_CHAT}/{message.id}")
-                    ]
-                ]
-            )
+            reject_string
         )
 
 
@@ -237,5 +223,5 @@ async def revert(_: Update, message: Message):
         chat_id=SPAM_GROUP,
         text=f"/ungban {target_id}"
     )
-    await pbot.send_message(SPAM_GROUP, f"USER [{target_id}](tg://openmessage?user_id={target_id}) UNSCANNED by {user_name}")
+    await pbot.send_message(GBAN_CHANNEL_ID, f"USER [{target_id}](tg://openmessage?user_id={target_id}) UNSCANNED by {user_name}")
     await message.reply_text(f"Revert completed!!\n[User](tg://openmessage?user_id={target_id}) is Now free!!")
