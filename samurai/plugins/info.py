@@ -78,7 +78,7 @@ async def info(_, message: Message):
     if check == False:
         crime = random.randint(100, 175)
         textt = f"""
-USER INFO in team samurai Database:
+USER INFO in Serenity Database:
 
 𖣘 Name: {user_name}
 𖣘 Username: @{usertag}
