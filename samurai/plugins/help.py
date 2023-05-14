@@ -20,12 +20,12 @@ HELP: use like this-
 
 COMMANDS:
 ```scan
-REVERT
-DEV
-WHOIS
-FLAGS
-BANCODES
-EXTRAS```
+Revert
+Dev
+Whois
+Flags
+Bancodes
+Extras```
 """
         return await message.reply_text(textt)
     if tex.upper() in ["SCAN"]:
