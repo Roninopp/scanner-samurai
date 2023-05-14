@@ -14,7 +14,7 @@ async def load_start():
     try:
         await pbot.send_message(
             int(SUPPORT_ID),
-            f"BOT STARTED SUCCESSFULLY!\nPYROGRAM VERSION: ``\nSCANNER VERSION = L.9.2",
+            f"BOT STARTED SUCCESSFULLY!\nPYROGRAM VERSION: `2.0.97`\nSCANNER VERSION = L.9.2",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
