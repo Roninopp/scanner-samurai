@@ -4,7 +4,7 @@ import random
 import os
 from pyrogram import Client
 from pytgcalls import idle
-
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from samurai import LOGGER, pbot, tbot, ubot, BOT_TOKEN, API_HASH, API_ID, SUPPORT_CHAT, SUPPORT_ID, DOWNLOAD_DIRECTORY, GBAN_CHANNEL_ID 
 
 
@@ -13,7 +13,16 @@ async def load_start():
     
     try:
         await pbot.send_message(
-            int(SUPPORT_ID), f"Client Started Successfully!!"
+            int(SUPPORT_ID),
+            f"BOT STARTED SUCCESSFULLY!\nPYROGRAM VERSION: ``\nSCANNER VERSION = L.9.2",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="Scan report", url=f"https://t.me/")
+                        InlineKeyboardButton(text="My LOGS", url=f"https://t.me/Serenity_log")
+                    ]
+                ]
+            )
         )
         await pbot.send_message(GBAN_CHANNEL_ID, f"Pyrogram Client Started Successfully!!")
         LOGGER.info("[INFO]: PYROGRAM BOT STARTED")
