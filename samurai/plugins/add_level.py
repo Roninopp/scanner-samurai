@@ -1,5 +1,6 @@
 from pyrogram import filters, Client
 from samurai import pbot, ubot, OWNER_ID, SUPPORT_USERS, SUDO_USERS
+from pyrogram.types import Message, Update
 
 
 @Client.on_message(filters.command("addenf", prefixes="?") & ~filters.private)
