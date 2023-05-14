@@ -6,25 +6,25 @@ import time
 
 bancodes = """
 HERE IS A HELP BANCODES OF SAMURAI SCANNER:-
-• `{TSSx00}` - Scammer
-• `{TSSx01}` - SPAM ADDING MEMBER
-• `{TSSx02}` - CHILD ABUSE
-• `{TSSx03}` - ILLEGAL
-• `{TSSx04}` - FRAUD PROMOTION  [ANY KIND]
-• `{TSSx05}` - PHISHING
-• `{TSSx06}` - BAN EVASION
-• `{TSSx07}` - RAID/SPAM INFLAMED
-• `{TSSx08}` - ADDING SPAMBOTS/RAIDERS
-• `{TSSx09}` - KRIMINALANT
-• `{TSSx10}` - SCAMMER
-• `{TSSx11}` - ABUSE SPAM
-• `{TSSx12}` - IMPERSONATION
-• `{TSSx13}` - MD/BTC SCAM
-• `{TSSx14}` - RAID INITIALIZER
-• `{TSSx15}` - RAID PARTICIPANT
-• `{TSSx16}` - SPAMBOT
-• `{TSSx17}` - CYBER THREATENING / CYBER BULLY
-• `{TSSx18}` - NSFW SPAMMER
+• `{SERx00}` - Scammer
+• `{SERx01}` - SPAM ADDING MEMBER
+• `{SERx02}` - CHILD ABUSE
+• `{SERx03}` - ILLEGAL
+• `{SERx04}` - FRAUD PROMOTION OR[ANY KIND]
+• `{SERx05}` - PHISHING
+• `{SERx06}` - BAN EVASION
+• `{SERx07}` - RAID/SPAM INFLAMED
+• `{SERx08}` - ADDING SPAMBOTS/RAIDERS
+• `{SERx09}` - KRIMINALANT
+• `{SERx10}` - SCAMMER
+• `{SERx11}` - ABUSE SPAM
+• `{SERx12}` - IMPERSONATION
+• `{SERx13}` - MD/BTC SCAM
+• `{SERx14}` - RAID INITIALIZER
+• `{SERx15}` - RAID PARTICIPANT
+• `{SERx16}` - SPAMBOT
+• `{SERx17}` - CYBER THREATENING / CYBER BULLY
+• `{SERx18}` - NSFW SPAMMER
 
 𖣘POWERED BY𖣘 - @TEAMSAMURAII
 """
@@ -37,7 +37,7 @@ async def start_all(_, message: Message):
     bb = await message.reply_text("`COLLECTING YOUR DB.......`")
     await asyncio.sleep(1)
     await message.reply_photo(
-        photo="https://telegra.ph/file/2123258da3308f46782d8.jpg",
+        photo="https://telegra.ph/file/05f55c62eca9291123201.jpg",
         caption=f"""
 WELCOME!! [{user_name}](tg://openmessage?user_id={user_id})
 ─────────────────
