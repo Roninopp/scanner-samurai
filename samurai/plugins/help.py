@@ -25,7 +25,7 @@ Dev
 Whois
 Flags
 Bancodes
-Extras```
+Extra```
 """
         return await message.reply_text(textt)
     if tex.upper() in ["SCAN"]:
