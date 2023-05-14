@@ -122,9 +122,9 @@ async def stats(_, message: Message):
   ✦┈➤ ALIVE SINCE: `{uptime}`
 
   
-  ┗━━✦❘༻   [SUPPORT](https://t.me/SpiralSupport)      ༺❘✦━━┛
+  ✦   [SUPPORT](https://t.me/SpiralSupport)      ✦
 
-   ┗━━✦❘༻    [NETWORK](https://t.me/TEAMSAMURAII)       ༺❘✦━━┛
+   ✦    [NETWORK](https://t.me/TEAMSAMURAII)       ✦
 
 ⊂ ✭I𝙽𝚂𝙿𝙴𝙲𝚃𝙾𝚁𝚂
 {enf}
