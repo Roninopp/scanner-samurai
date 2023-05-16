@@ -22,7 +22,7 @@ def splitting(text):
     remove_flag = remove_cmd.split(None, 1)[1]
     target_id = remove_flag.split(" ")[0]
     remove_id = remove_flag.split(None, 1)[1]
-    dividee = remove_id.partition("TSS")
+    dividee = remove_id.partition("SER")
     reason = dividee[0]
     divide_reason = remove_id.partition(reason)[2]
     bancode = divide_reason.split(" ")[0]
