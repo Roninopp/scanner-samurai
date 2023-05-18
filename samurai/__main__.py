@@ -18,7 +18,7 @@ async def load_start():
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="Scan report", url=f"https://t.me/"),
+                        InlineKeyboardButton(text="Scan report", url=f"https://t.me/serenity_system"),
                         InlineKeyboardButton(text="My LOGS", url=f"https://t.me/Serenity_log")
                     ]
                 ]
