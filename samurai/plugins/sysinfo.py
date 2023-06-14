@@ -5,7 +5,7 @@ import asyncio
 import time
 
 
-@ubot.on_message(filters.command("sysinfo", prefixes="?") & ~filters.private)
+@ubot.on_message(filters.command("tsinfo", prefixes="?") & ~filters.private)
 async def ubscan(_: Update, message: Message):
 
     user_id = message.from_user.id
