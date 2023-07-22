@@ -52,12 +52,12 @@ Created and developed For removing toxic people from telegram
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="『ABOUT』⁪⁬⁮⁮⁮⁮", callback_data="about_call"),
-                    InlineKeyboardButton(text="『BANCODES』⁪⁬⁮⁮⁮⁮", callback_data="bancode_call")
+                    InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="about_call"),
+                    InlineKeyboardButton(text="ʙᴀɴᴄᴏᴅᴇꜱ⁪⁬⁮⁮⁮⁮", callback_data="bancode_call")
                 ],
                 [
-                    InlineKeyboardButton(text="『NETWORK』⁪⁬⁮⁮⁮⁮", url="https://t.me/teamsamuraii"),
-                    InlineKeyboardButton(text="『SUPPORT GROUP』⁪⁬⁮⁮⁮⁮", url=f"https://t.me/{SUPPORT_CHAT}")
+                    InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="https://t.me/teamsamuraii"),
+                    InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ-ɢʀᴏᴜᴘ", url=f"https://t.me/{SUPPORT_CHAT}")
                 ]
             ]
         )
