@@ -36,8 +36,8 @@ async def start_all(_, message: Message):
     user_name = message.from_user.first_name
     bb = await message.reply_text("`Checking Your Information Please wait...`")
     await asyncio.sleep(1)
-    await message.reply_photo(
-        photo="https://telegra.ph/file/56e50c3613bf7a02e31b7.mp4",
+    await message.reply_video(
+        video="https://telegra.ph/file/56e50c3613bf7a02e31b7.mp4",
         caption=f"""
 WELCOME!! [{user_name}](tg://openmessage?user_id={user_id})
 ─────────────────
