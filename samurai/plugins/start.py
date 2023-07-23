@@ -34,10 +34,10 @@ HERE IS A HELP BANCODES OF SAMURAI SCANNER:-
 async def start_all(_, message: Message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
-    bb = await message.reply_text("`COLLECTING YOUR DB.......`")
+    bb = await message.reply_text("`Checking Your Information Please wait...`")
     await asyncio.sleep(1)
     await message.reply_photo(
-        photo="https://telegra.ph/file/05f55c62eca9291123201.jpg",
+        photo="https://telegra.ph/file/56e50c3613bf7a02e31b7.mp4",
         caption=f"""
 WELCOME!! [{user_name}](tg://openmessage?user_id={user_id})
 ─────────────────
