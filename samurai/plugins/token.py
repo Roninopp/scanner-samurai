@@ -4,8 +4,8 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message, Chat, User, InlineKeyboardMarkup, InlineKeyboardButton, Update
 import requests
 import random
-api_url = ""
-api_token = ""
+api_url = "https://samuraiapii-7dd8f8e33fa5.herokuapp.com/"
+#api_token = ""
 
 def create_token(user_id):
     user_id = str(user_id)
@@ -31,7 +31,7 @@ async def token_gen(_, message: Message):
         level = "ENFORCER"
 
         token_save(str(user_id), tokenn, level)
-        await message.reply_text(f"INSPECTOR level Token created successfully!\n\n`{tokenn}`")
+        await message.reply_text(f"ENFORCER level Token created successfully!\n\n`{tokenn}`")
 
         creation = token_save(str(user_id), tokenn, level)
         if creation != "DONE!!":
