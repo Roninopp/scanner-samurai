@@ -34,7 +34,7 @@ SUPPORT_USERS = list(SUPPORTLIST) + SUDO_USERS #Enforcer
 
 REQUEST_IMG = "https://telegra.ph/file/9ed4c2423cb907046f254.jpg"
 
-MONGO_DB = "mongodb+srv://DARKAMAN:DARKAMAN@cluster0.snqhn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGO_DB = "mongodb+srv://kuldiprathod2003:kuldiprathod2003@cluster0.wxqpikp.mongodb.net/?retryWrites=true&w=majority"
 #===================================
 
 StartTime = time.time()
